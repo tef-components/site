@@ -1,0 +1,565 @@
+---
+title: Default Layout CSS
+baseUrl: "../"
+---
+
+@font-face {
+    font-family: TelefonicaText;
+    src: url('{{ page.baseUrl }}fonts/TelefonicaText-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: TelefonicaTextLight;
+    src: url('{{ page.baseUrl }}fonts/TelefonicaHeadline-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: TelefonicaCAP;
+    src: url('{{ page.baseUrl }}fonts/TelefonicaCAP.otf') format('opentype');
+}
+
+@font-face {
+    font-family: TelefonicaText-Bold;
+    src: url('{{ page.baseUrl }}fonts/TelefonicaText-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'socicon';
+    src: url('{{ page.baseUrl }}fonts/socicon-webfont.eot');
+    src: url('{{ page.baseUrl }}fonts/socicon-webfont.eot?#iefix') format('embedded-opentype'),
+         url('{{ page.baseUrl }}fonts/socicon-webfont.woff') format('woff'),
+         url('{{ page.baseUrl }}fonts/socicon-webfont.ttf') format('truetype'),
+         url('{{ page.baseUrl }}fonts/socicon-webfont.svg#sociconregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body, p {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+p {
+    font-size: 1em;
+}
+
+ul {
+    list-style: none;
+    margin-bottom: auto;
+    margin-top: auto;
+    padding: 0;
+}
+
+img {
+    border: none;
+}
+
+#body {
+    font-family: TelefonicaText, Arial, Helvetica, sans-serif;
+    overflow-y: scroll;
+    background-color: #FFFFFF;
+}
+
+#main {
+    width: 100%;
+    clear: both;
+    padding-top: 0;
+}
+
+header {
+    background-color: #FFFFFF;
+    top: 0;
+    width: 100%;
+    z-index: 30;
+    position: relative;
+}
+
+#content {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.link {
+    cursor: pointer;
+    color: #19bfd3;
+    height: 0.75em;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #2DC1D5;
+    text-decoration: underline;
+}
+
+#bg-header {
+    float: left;
+    width: 100%;
+    background: url('{{ page.baseUrl }}img/defLayout/bg_header.png');
+    background-size: 100% 100%;
+    border: 0;
+    color: #FFFFFF;
+    font-size: 100%;
+    height: 5.5em;
+    line-height: 5.5em;
+    vertical-align: middle;
+}
+
+.product-logo {
+    color: #FFFFFF;
+    display: inline-block;
+    font-family: TelefonicaTextLight, Arial, Helvetica, sans-serif;
+    font-size: 1.875em;
+    font-weight: normal;
+    text-shadow: 0em 0em 0.625em #333;
+    line-height: 1.1em;
+    margin: 0;
+    padding: 0 0.7em 0 0.7em;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.product-logo-container {
+    float: right;
+    height: 100%;
+    margin: 0 1.5em;
+    max-width: 60%;
+}
+
+#bg-subheader {
+    float: left;
+    width: 100%;
+    background: #003245;
+    height: 1.813em;
+}
+
+.company-logo-container {
+    display: inline-block;
+    margin-left: 2em;
+}
+
+.company-logo-container img {
+    max-height: 100%;
+    vertical-align: middle;
+    width: 8em;
+}
+
+.bold {
+    font-family: TelefonicaText, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    margin: 0;
+}
+
+.bolder {
+    margin-top: 1.188em;
+    font-family: TelefonicaText, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 1.875em;
+}
+
+#top-bar {
+    background-color: #FFFFFF;
+    height: 1.625em;
+    line-height: 1.625em;
+    vertical-align: middle;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#top-bar .link {
+    float: right;
+    font-size: 14px;
+    padding-right: 10px;
+}
+
+#list-top-bar {
+    text-align: right;
+}
+
+.center-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 72.19em;
+/*  width: 71.875em;        Without this the design is more responsive */
+}
+
+#menu {
+    background: white;
+    font-size: 1em;
+    letter-spacing: 0em;
+    clear: both;
+    padding: 0em 2em 0em 2em;
+}
+
+.not_hove {
+    margin-top: 0.188em;
+    text-align: center;
+    cursor: pointer;
+    line-height: 2em;
+    vertical-align: middle;
+    color: #003245;
+    text-decoration: none;
+}
+
+#menu a {
+    text-decoration: none;
+}
+
+#list-top-bar>li {
+    cursor: pointer;
+    float: right;
+	font-family: TelefonicaText, Arial, Helvetica, sans-serif;
+    font-size: 0.875em;
+    font-weight: normal;
+    width: 9.5em;
+    line-height: 2em;
+}
+
+#list-top-bar>li, footer .primary-footer li, #partners li, #menu .menu-buttons>li {
+    display: inline-table;
+    list-style: none;
+    padding-top: 0;
+}
+
+.brand-selected {
+    color: #2DC1D5;
+}
+
+#menu .center-container .menu-buttons>li {
+    border-right: 0.063em solid #DEDDDC;
+    height: 2.375em;
+    vertical-align: middle;
+    text-align: center;
+    padding-right: 1.563em;
+    padding-left: 1.563em;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #003245;
+}
+
+
+#list-top-bar>li.first, footer .primary-footer li.first {
+    border-left: none;
+}
+
+#menu li.first div {
+    background: url('{{ page.baseUrl }}img/defLayout/home_black.png') no-repeat center 0.594em;
+    background: rgba(0,0,0,0) url('{{ page.baseUrl }}img/defLayout/home_black.svg') no-repeat center 0.594em;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    height: 2.188em;
+    width: 1.188em;
+}
+
+#menu li.first div.home-hove {
+    background: url('{{ page.baseUrl }}img/defLayout/home.png') no-repeat center 0.594em;
+    background: rgba(0,0,0,0) url('{{ page.baseUrl }}img/defLayout/home.svg') no-repeat center 0.594em;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    border-bottom: 0.188em solid #2DC1D5;
+}
+
+#menu li.first:hover div:not(.home-hove) {
+    background: url('{{ page.baseUrl }}img/defLayout/home_gris.png') no-repeat center 0.594em;
+    background: rgba(0,0,0,0) url('{{ page.baseUrl }}img/defLayout/home_gris.svg') no-repeat center 0.594em;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+}
+
+#menu .center-container .menu-buttons>li.last {
+    border-right: 0px;
+    float: right;
+    padding-right: 0px;
+    padding-left: 0px;
+    border-left: 0.063em solid #DEDDDC;
+    padding-left: 20px;
+}
+
+#menu p {
+    margin-top: 0.188em;
+    text-align: center;
+    cursor: pointer;
+    line-height: 2em;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+#menu p:hover {
+    margin-top: 0.188em;
+    margin-bottom: 0em;
+    color: #A3A49F;
+}
+
+.brand-selector {
+    float: right;
+}
+
+.hove {
+    margin-top: 0.188em;
+    text-align: center;
+    cursor: pointer;
+    line-height: 2em;
+    vertical-align: middle;
+    color: #2DC1D5;
+    text-decoration: none;
+    margin-bottom: 0em;
+    border-bottom: 0.188em solid #2DC1D5;
+}
+
+footer .primary-footer li {
+    cursor: pointer;
+    border-left: 1px solid #19bfd3;
+    color: #19bfd3;
+    font-size: 1em;
+    padding-right: 0.625em;
+    padding-left: 0.625em;
+}
+
+footer .primary-footer li.first {
+    cursor: default;
+    text-decoration: none;
+}
+
+footer .primary-footer li.first a {
+    cursor: default;
+}
+
+footer .primary-footer ul .first a {
+    color: #333333;
+    font-size: 0.750em;
+}
+
+footer {
+    background-color: #e0e0df;
+    bottom: 0;
+    min-height: 1.875em;
+    width: 100%;
+    font-family: "Arial";
+}
+
+footer .primary-footer a {
+    font-size: 0.75em;
+}
+
+footer .primary-footer ul {
+    padding: 0.75em 2em;
+}
+
+/*** SUB-FOOTER ***/
+
+.socicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'socicon';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.socicon:empty{
+    width: 1em;
+}
+
+.socicon-twitter:before { content: "a"; }
+
+.sub-footer {
+    background-color: #F4F4F4;
+    color: #A3A49F;
+    font-family: Arial, Sans-Serif;
+}
+
+.sub-footer .three-columns-box {
+    padding: 0.5em 2em 2em 2em;
+}
+
+.sub-footer .title {
+    font-size: 1.125em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sub-footer p {
+    font-size: 0.8125em;
+    padding-bottom: 2em;
+    text-align: center;
+}
+
+.sub-footer .telefonica-logo {
+    margin-top: 0.65em;
+    margin-bottom: 0.7em;
+}
+
+.sub-footer .telefonica-logo img {
+    max-height: 2.3em;
+    max-width: 8em;
+}
+
+.sub-footer .tweet {
+    text-align: center;
+    padding-left: 10px;
+    color: #A3A49F;
+}
+
+.sub-footer a, .sub-footer a:hover {
+    color: #A3A49F;
+}
+
+/*** END SUB-FOOTER ***/
+
+
+.three-columns, .two-columns {
+    display: table;
+    width: 100%;
+}
+
+.two-columns .two-columns-box {
+    display: table-cell;
+    float: left;
+    width: 50%;
+}
+
+.three-columns .three-columns-box.first {
+    border-left: 0;
+}
+
+.three-columns .three-columns-box {
+    border-left: 0.063em solid #DEDDDC;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 33%;
+}
+
+#brand-dropdown li {
+    display: block;
+    outline: none;
+    padding: 5px 16px 5px 16px;
+    margin: 7px 0px;
+    border: 1px solid #CFCECE;
+    border-radius: 3px;
+    height: 27px;
+    text-align: center;
+}
+
+#brand-dropdown li a img {
+    margin: auto;
+    vertical-align: middle;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#brand-dropdown li:hover {
+    border: 2px solid #2dc1d5;
+    padding: 4px 15px 4px 15px;
+}
+
+#brand-dropdown li:not(:hover) {
+    opacity: 0.35;
+}
+
+#brand-dropdown li:not(:hover).active {
+    opacity: 1;
+    border: 2px solid #2dc1d5;
+    padding: 4px 15px 4px 15px;
+}
+
+
+#brand-selected-container {
+    border: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0.25em 1.3em 0.25em 1.3em
+}
+
+#brand-selected-container:hover .brand-selected {
+    text-decoration: underline;
+}
+
+.brand-menu:hover #brand-selected-container {
+    /*border-color: #A3A49F;*/
+}
+
+#brand-dropdown {
+    background-color: #FFFFFF;
+    border: 1px solid #F3F3F3;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 0;
+    margin: 37px 68px;
+    opacity: 0;
+    overflow: hidden;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+    position: absolute;
+    width: 9.5em;
+    -webkit-transition: opacity 0.5s ease-out;
+    -moz-transition: opacity 0.5s ease-out;
+    -o-transition: opacity 0.5s ease-out;
+    transition: opacity 0.5s ease-out;
+}
+
+#brand-dropdown a {
+    color: #003245;
+}
+
+#brand-dropdown:hover {
+    display: block;
+}
+
+#list-top-bar:hover > .choose:not(:hover) + .brand-menu + #brand-dropdown {
+    opacity: 1;
+    height: auto;
+}
+
+#brand-menu-arrow {
+    height: 0.55em;
+}
+
+#list-top-bar:hover > .choose:not(:hover) + .brand-menu #brand-menu-arrow {
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+}
+
+.brand-menu {
+    text-align: center;
+}
+
+div.choose {
+    font-size: 14px;
+    float: left;
+    padding-top: 5px;
+    line-height: 2em;
+    vertical-align: middle;
+}
+

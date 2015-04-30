@@ -1,0 +1,177 @@
+---
+title: Home CSS
+baseUrl: "../../"
+---
+
+.hidden {
+    display: none;
+}
+
+.product-logo {
+    padding-right: 0.7em;
+}
+
+#intro .bluelight {
+    background: url('{{ page.baseUrl }}img/home/bluelight.png') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 27em;
+    opacity: 0.9;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+#intro {
+  /*  background: url('{{ page.baseUrl }}img/home/bluelight.png') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;*/
+    border-bottom: 1.25em solid #F1F3F3;
+    height: 27em;
+    overflow: hidden;
+    width: 100%;
+}
+
+#intro #bg-circles {
+    background: url('{{ page.baseUrl }}img/home/circles.png');
+    -webkit-background-size: auto 150%;
+    -moz-background-size: auto 150%;
+    -o-background-size: auto 150%;
+    background-size: auto 150%;
+    background-position: 0 100%;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+#intro #bg-computer {
+    float: right;
+    height: 27em;
+    position: relative;
+    width: 80%;
+}
+
+#intro #bg-computer img {
+    bottom: 0;
+    max-height: 150%;
+    max-width: 100%;
+    position: absolute;
+    right: 0;
+}
+
+#intro .text-container {
+    position: relative;
+}
+
+#intro #text {
+    float: left;
+    margin-right: -50em;
+    padding-left: 2em;
+}
+
+#intro #text h1 {
+    color: #ffffff;
+    margin-top: 3em;
+}
+
+#intro #text h2 {
+    color: #FFFFFF;
+    margin-top: 0.5em;
+}
+
+#pages {
+    background-color: #FFFFFF;
+    padding-top: 1.25em;
+    padding-bottom: 1.25em;
+}
+
+#pages .three-columns .three-columns-box {
+    padding: 3em;
+}
+
+#pages .three-columns .three-columns-box h2 {
+    color: #008AD0;
+    float: left;
+    margin-bottom: 0.2em;
+    margin-top: 0;
+    font-size: 30px;
+	font-family: TelefonicaText, Arial, Helvetica, sans-serif;
+}
+
+#pages .three-columns .three-columns-box h4 {
+    clear: both;
+    color: #007486;
+    margin-bottom: 0.2em;
+    margin-top: 0;
+    font-size: 18px;
+	font-family: TelefonicaText, Arial, Helvetica, sans-serif;
+}
+
+#pages .three-columns .three-columns-box p {
+    color: #A3A49F;
+    font-size: 18px;
+	font-family: TelefonicaText, Arial, Helvetica, sans-serif;
+    margin-bottom: 1em;
+}
+
+#pages .three-columns .three-columns-box #button-layouts {
+    background: url('{{ page.baseUrl }}img/home/circle_layouts.png') no-repeat scroll center center transparent;
+    background: rgba(0,0,0,0) url('{{ page.baseUrl }}img/home/circle_layouts.svg') no-repeat scroll center;
+    background-size: 100%;
+}
+
+#pages .three-columns .three-columns-box #button-components {
+    background: url('{{ page.baseUrl }}img/home/circle_components.png') no-repeat scroll center center transparent;
+    background: rgba(0,0,0,0) url('{{ page.baseUrl }}img/home/circle_components.svg') no-repeat scroll center;
+    background-size: 100%;
+}
+
+#pages .three-columns .three-columns-box #button-downloads {
+    background: url('{{ page.baseUrl }}img/home/circle_resources.png') no-repeat scroll center center transparent;
+    background: rgba(0,0,0,0) url('{{ page.baseUrl }}img/home/circle_resources.svg') no-repeat scroll center;
+    background-size: 100%;
+}
+
+#pages .three-columns .three-columns-box .img-button:hover {
+    opacity: 0.5;
+}
+
+#pages .three-columns .three-columns-box .img-button {
+    border-radius: 50%;
+    cursor: pointer;
+    height: 10em;
+    margin: 2em auto 2em auto;
+    width: 10em;
+    -webkit-transition: opacity 250ms linear;
+    -moz-transition: opacity 250ms linear;
+    -o-transition: opacity 250ms linear;
+    transition: opacity 250ms linear;
+}
+
+.orange-underscore {
+    color: #faab57;
+}
+
+
+@media (max-width: 900px) {
+    #pages .three-columns .three-columns-box {
+        width: 100%;
+    }
+
+    #intro .bluelight {
+        background-position: 30% 30%;
+    }
+}
+
+@media (max-width: 640px) {
+    #intro #text h1 {
+        margin-top: 1em;
+    }
+
+    #intro #bg-computer {
+        margin-right: 10%;
+    }
+}

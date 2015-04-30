@@ -1,0 +1,137 @@
+---
+layout: components
+title: Searchbox
+linkGithub: "components/searchbox"
+linkPlunker: "http://plnkr.co/edit/KsXEpFeSStLpDqxU7V6k?p=preview"
+sizes:
+- value: large
+- value: medium
+
+currentMenuSection: "Form"
+currentMenu: "Searchbox"
+currentSubmenu: "Standard"
+text: "Searchbox are used to quickly create elegant typeaheads with any form text input"
+---
+<div class="content-spacer">
+    <div class="visualization-container">
+
+        <div ng-controller="ShowController as graphicController" ng-init="graphicController.init('states')">
+            <ul class="nav-tab">
+                <li ng-click="graphicController.switchTo('states')" ng-class="{'selected': graphicController.isSelected('states')}">STATES</li>
+                <li class="sep"></li>
+                <li ng-click="graphicController.switchTo('sizes')" ng-class="{'selected': graphicController.isSelected('sizes')}">SIZES</li>
+            </ul>
+
+            <div class="states-tab tab" ng-show="graphicController.isSelected('states')">
+                <div class="tab-separator"></div>
+                <div class="inner-tab">
+                    <div class="inner-tab-content">
+                        <div class="state clear">
+                            <p class="title">Normal</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/states/{{ page.currentSubmenu| downcase}}_state_normal.png"/>
+                                <p class="description">An enabled input field is ready to <span>gather user information</span></p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="state clear">
+                            <p class="title">Focused</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/states/{{ page.currentSubmenu| downcase}}_state_focused.png"/>
+                                <p class="description">An input field can <span>highlight when user is interacting</span> with it</p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="state clear">
+                            <p class="title">Error</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/states/{{ page.currentSubmenu| downcase}}_state_error.png"/>
+                                <p class="description">An input field can present an <span>error description</span> when entered data is not correct</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sizes-tab tab" ng-show="graphicController.isSelected('sizes')">
+                <div class="tab-separator"></div>
+                <div class="inner-tab">
+                    <div class="inner-tab-content">
+                        <div class="size clear">
+                            <p class="title">Medium</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/sizes/{{ page.currentMenu| downcase}}/{{ page.currentSubmenu| downcase}}_size_medium.png"/>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="size clear">
+                            <p class="title">Large</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/sizes/{{ page.currentMenu| downcase}}/{{ page.currentSubmenu| downcase}}_size_large.png"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-controller="ShowController as editorController" ng-init="editorController.init('html')" class="editor">
+            <div class="plnkr-link">
+                <a href="{{page.linkPlunker}}" class="small btt-plunker" target="_blank">
+                  Go Plunker
+                </a>
+            </div>
+            
+            <ul class="nav-tab">
+                <li ng-click="editorController.switchTo('html')" ng-class="{'selected': editorController.isSelected('html')}">HTML</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('css')" ng-class="{'selected': editorController.isSelected('css')}">CSS</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('source')" ng-class="{'selected': editorController.isSelected('source')}">SOURCE</li>
+            </ul>
+
+            <div class="html-tab tab" ng-show="editorController.isSelected('html')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<input class="{{ page.brand_folder | downcase }} search-large" placeholder="Search"/>
+<ul>
+    <li>Sample option 1</li>
+    <li>Sample option 2</li>
+    <li>Sample option 3</li>
+</ul>
+<div class="{{ page.brand_folder | downcase }} search-error-text-{{optionsCtrl.selectedSize}}">Error Message</div>
+{% endhighlight %}
+            </div>
+
+            <div class="css-tab tab" ng-show="editorController.isSelected('css')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<link href="bb-search.css"
+      rel="stylesheet" type="text/css">
+<link href="{{ page.brand_folder | downcase }}-search.css"
+      rel="stylesheet" type="text/css">
+{% endhighlight %}
+            </div>
+
+            <div class="doc-tab tab" ng-show="editorController.isSelected('source')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<input placeholder=""
+       ng-change=""
+       ng-model=""
+       ng-class=""
+       ng-focus=""
+       ng-blur=""/>
+<ul ng-show="">
+    <li ng-repeat="" ng-click=""></li>
+</ul>
+<div ng-class="">
+</div>
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+

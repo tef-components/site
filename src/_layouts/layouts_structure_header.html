@@ -1,0 +1,32 @@
+---
+layout: layouts
+title: Website structure
+linkGithub: "layouts/header"
+
+currentMenuSection: "Internal System"
+currentMenu: "Website structure"
+currentSubmenu: "Header"
+internalTitle: "Header"
+internalImage: "layouts/structure_header.png"
+internalImage2: "layouts/structure_header_responsive.png"
+internalImage3: "layouts/structure_header_responsive_open.png"
+---
+<div id="internal-title">{{ page.internalTitle }}</div>
+<div id="internal-text">
+    <p>The header will be the unifying element for all our websites; it is obligatory to always use this header exactly how it is laid out.</p>
+    <p>There are mandatory elements, recommended elements and flexible or adapted elements.</p>
+</div>
+<div class="content-spacer layouts-internal-content">
+    <h3>Desktop</h3>
+    <div class="internal-image-container spaced-medium">
+        <img class="image-container-middle" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.internalImage }}" />
+    </div>
+
+    <h3 class="space-before">Responsive</h3>
+    <div class="internal-image-container spaced-medium">
+        <img class="image-container-left" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.internalImage2 }}" />
+    </div>
+    <div class="internal-image-container spaced-medium">
+        <img class="image-container-left" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.internalImage3 }}" />
+    </div>
+</div>

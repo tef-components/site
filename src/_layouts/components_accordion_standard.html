@@ -1,0 +1,107 @@
+---
+layout: components
+title: Accordion
+linkGithub: "components/accordion"
+linkPlunker: "http://plnkr.co/edit/uEOSWW?p=preview"
+
+currentMenuSection: "Data"
+currentMenu: "Accordion"
+currentSubmenu: "Standard"
+text: ["The accordion directive builds on top of the collapse directive to provide a list of items, with collapsible bodies that are collapsed or expanded by clicking on the item's header.",
+       "We can control whether expanding an item will cause the other items to close, using the close-others attribute on accordion.",
+       "The body of each accordion group is transcluded in to the body of the collapsible element."
+      ]
+---
+<div class="content-spacer">
+    <div class="visualization-container">
+
+        <div ng-controller="ShowController as graphicController" ng-init="graphicController.init('example')">
+            <ul class="nav-tab">
+                <li ng-click="graphicController.switchTo('example')" ng-class="{'selected': graphicController.isSelected('example')}">EXAMPLE</li>
+            </ul>
+
+            <div class="states-tab tab" ng-show="graphicController.isSelected('example')">
+                <div class="tab-separator"></div>
+                <div class="inner-tab">
+                    <div class="inner-tab-content">
+                        <img src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.currentMenu | downcase }}/{{ page.currentSubmenu | downcase }}_accordion.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-controller="ShowController as editorController" ng-init="editorController.init('html')" class="editor">
+            <div class="plnkr-link">
+                <a href="{{page.linkPlunker}}" class="small btt-plunker" target="_blank">
+                  Go Plunker
+                </a>
+            </div>
+
+            <ul class="nav-tab">
+                <li ng-click="editorController.switchTo('html')" ng-class="{'selected': editorController.isSelected('html')}">HTML</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('css')" ng-class="{'selected': editorController.isSelected('css')}">CSS</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('js')" ng-class="{'selected': editorController.isSelected('js')}">JS</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('source')" ng-class="{'selected': editorController.isSelected('source')}">SOURCE</li>
+            </ul>
+
+            <div class="html-tab tab" ng-show="editorController.isSelected('html')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<accordion>
+    <accordion-group>
+        <accordion-heading>
+            Disabled item
+        </accordion-heading>
+        <div>
+            This is the internal accordion item content
+        </div>
+    </accordion-group>
+</accordion>
+{% endhighlight %}
+            </div>
+
+            <div class="css-tab tab" ng-show="editorController.isSelected('css')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<link href="bb-accordion.css"
+      rel="stylesheet" type="text/css">
+{% endhighlight %}
+            </div>
+
+            <div class="js-tab tab" ng-show="editorController.isSelected('js')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<script src="angular.min.js"
+        type="text/javascript">
+</script>
+<script src="ui-bootstrap-tpls-0.11.2.js"
+        type="text/javascript">
+</script>
+<script src="bb-accordion.js"
+        type="text/javascript">
+</script>
+{% endhighlight %}
+            </div>
+
+            <div class="doc-tab tab" ng-show="editorController.isSelected('source')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<accordion
+    close-others=""
+>
+</accordion>
+<accordion-group
+    ng-repeat=""
+    heading=""
+    is-open=""
+    is-disabled=""
+>
+</accordion-group>
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</div>

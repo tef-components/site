@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+{% assign section = {{page.section}} %}
+{% assign currentMenu = {{page.currentMenu}} %}
+
+<html lang="en-US" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Building Blocks - {{page.title}}</title>
+
+        <link href="{{ page.baseUrl }}css/def_layout.css" rel="stylesheet" type="text/css" />
+        <link href="{{ page.baseUrl }}css/def_layout_responsive.css" rel="stylesheet" type="text/css" />
+        <link href="https://cdn.rawgit.com/PDI-DGS-Protolab/building-blocks-material/master/components/tooltip/css/bb-tooltip.css" rel="stylesheet" type="text/css" />
+
+        <script src="{{ page.baseUrl }}js/handlers.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.min.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular-animate.min.js" type="text/javascript"></script>
+        <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+        <script src="{{ page.baseUrl }}js/modules/app.js" type="text/javascript"></script>
+        <script src="{{ page.baseUrl }}js/modules/scroll.js" type="text/javascript"></script>
+        <script src="{{ page.baseUrl }}js/modules/showController.js" type="text/javascript"></script>
+        <script src="{{ page.baseUrl }}js/events.js" type="text/javascript"></script>
+
+        {% include additional_links.html %}
+
+    </head>
+    <body id="body" ng-app='bbApp' class="{{page.title}} {{page.theme}}" scroll ng-class="{'resize': scrollPosition > 40}">
+        <header>
+            <div id="top-bar">
+                <div class="center-container">
+                    <a class="link" href="mailto:building_blocks@tid.es?Subject=Contact%20Request">Contact Us</a>
+                </div>
+            </div>
+
+            <div id="bg-header">
+                <div class="center-container" ng-controller="ShowController as brandMenuCtrl">
+                    {% if section != 'index.html' and section != 'legal-notice.html' %}
+                    <div class="brand-mobile-menu-container">
+                        <div id="brand-mobile-icon" ng-class="{'open': brandMenuCtrl.isSelected('menu')}"
+                             ng-click="brandMenuCtrl.switchToWithToggle('menu')">
+                        </div>
+                        <ul id="brand-dropdown-mobile" ng-show="brandMenuCtrl.isSelected('menu')">
+                          {% for link in site.brands_menu %}
+                          {% unless page.brand == link.text %}
+                            <li>
+                              <a class="link" href="{{ page.baseUrl }}{% for section in page.menus %}{% for menu in section.data %}{% if page.currentMenu == menu.text %}{% for submenu in menu.submenus%}{%if page.currentSubmenu == submenu.text %}{% assign done=true %}{{submenu.url}}{% endif %}{% endfor %}{% unless done %}{{menu.url}}{% endunless %}{% endif %}{% endfor %}{% endfor %}{{link.url}}">{{ link.text }}</a>
+                            </li>
+                          {% endunless %}
+                          {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    <div class="product-logo-container">
+                        <a {% if page.title != "Home" %}href="{{ page.baseUrl }}index.html?brand={{ page.brand_folder | downcase }}" target="product"{% endif %}><h1 class="product-logo">Building Blocks</h1></a>
+                    </div>
+                    <div class="company-logo-container" >
+                        <a href="http://www.telefonica.com/" target="company"><img src="{{ page.baseUrl }}img/defLayout/company_logo.svg" onError="onSvgError(this);"></a>
+                    </div>
+                </div>
+            </div>
+            <div id="bg-subheader">
+
+            </div>
+            <div id="menu">
+                <div class="center-container">
+                    <ul class="menu-buttons">
+                        <li class="first">
+                            <a href="{{ page.baseUrl }}index.html?brand={{ page.brand_folder | downcase }}"><div {% if page.section == "index.html" %} class="home-hove" {% endif %} ></div></a>
+                        </li>
+                      {% for link in site.menu %}
+                        <li>
+                          <a href="{{ page.baseUrl }}{{link.url}}?brand={{ page.brand_folder | downcase }}"><p {% if page.section == link.text %}class="hove" {% else %} class="not_hove" {% endif %} >{{ link.text  | capitalize }}</p></a>
+                        </li>
+                      {% endfor %}
+                      {% if section != 'index.html' and section != 'legal-notice.html' %}
+                        <li class="last">
+                            <ul id="list-top-bar">
+                                <div class="choose">Choose brand:</div>
+                                <li class="brand-menu">
+                                    <div id="brand-selected-container">
+                                        <a class="brand-selected">{{page.brand}}</a>
+                                        <img id="brand-menu-arrow" src="{{ page.baseUrl }}img/defLayout/blue_arrow.png" />
+                                    </div>
+                                </li>
+
+                                    <div id="brand-dropdown">
+                                        <ul>
+                                        {% for link in site.brands_menu %}
+                                            <li class="{% if page.brand == link.text %} active {% endif %}">
+                                              <a href="{{ page.baseUrl }}{% for section in page.menus %}{% for menu in section.data %}{% if page.currentMenu == menu.text %}{% for submenu in menu.submenus%}{%if page.currentSubmenu == submenu.text %}{% assign done=true %}{{submenu.url}}{% endif %}{% endfor %}{% unless done %}{{menu.url}}{% endunless %}{% endif %}{% endfor %}{% endfor %}{{link.url}}">
+                                                  <img src="{{ page.baseUrl}}{{ link.img }}" onError="onSvgError(this);" alt="{{ link.text }}"/>
+                                              </a>
+                                            </li>
+                                        {% endfor %}
+                                        </ul>
+                                    </div>
+                            </ul>
+                        </li>
+                      {% endif %}
+                    </ul>
+                </div>
+            </div>
+
+            <div id="menu-mobile" ng-controller="ShowController as mobileMenuCtrl">
+                <div class="hedaer-menu-container" ng-click="mobileMenuCtrl.switchToWithToggle('item')">
+                    <p>Menu</p>
+                    <div id="menu-mobile-icon" ng-class="{'open': mobileMenuCtrl.isSelected('item')}"></div>
+                </div>
+                <ul ng-show="mobileMenuCtrl.isSelected('item')">
+                    <li class="first">
+                        <a href="{{ page.baseUrl }}index.html?brand={{ page.brand_folder | downcase }}"><p {% if page.section == "index.html" %} class="mobile-hove" {% endif %} >Home</p></a>
+                    </li>
+                  {% for link in site.menu %}
+                    <li>
+                      <a href="{{ page.baseUrl }}{{link.url}}?brand={{ page.brand_folder | downcase }}"><p {% if page.section == link.text %}class="mobile-hove" {% endif %} >{{ link.text  | capitalize }}</p></a>
+                    </li>
+                  {% endfor %}
+                </ul>
+            </div>
+	    </header>
+
+        <div id="main">
+            <div id="content">
+              {{content}}
+            </div>
+
+            <footer id="foot">
+                <div class="center-container primary-footer">
+                    <ul>
+                      {% for link in site.footer %}
+                        <li {% if forloop.first %} class="first" {% endif %}>
+                          {% if link.url %}
+                            <a class="link" href="{{ page.baseUrl }}{{link.url}}"> {{link.text}} </a>
+                          {% elsif link.href %}
+                            <a class="link" href="{{ link.href }}"> {{link.text}} </a>
+                          {% elsif link.newHref %}
+                            <a class="link" target="_blank" href="{{ link.href }}"> {{link.text}} </a>
+                          {% else %}
+                            <a> {{link.text}} </a>
+                          {% endif %}
+                        </li>
+                      {% endfor %}
+                    </ul>
+                </div>
+              {% if section != "index.html" and section != "contact.html" %}
+                <div class="sub-footer">
+                    <div class="center-container three-columns">
+                        <div class="three-columns-box first">
+                            <h3 class="title"><span class="socicon socicon-twitter"></span> TWITTER ACTIVITY </h3>
+                            <div class="tweet">
+                                <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/TEF_BBlocks" data-widget-id="533232605324275714">Tweets por el @TEF_BBlocks.</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                            </div>
+                        </div>
+                        <div class="three-columns-box first">
+                            <h3 class="title"> LINKS AND RESOURCES </h3>
+                            <p>- <a class="link" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Javascript resources</a></p>
+                            <p>- <a class="link" target="_blank" href="https://www.openwebdevice.com/partners/pages/index.html">OpenWeb Device guidelines</a></p>
+                            <p>- <a class="link" target="_blank" href="http://buildingfirefoxos.com/">Building Firefox OS</a></p>
+                            <p>- <a class="link" target="_blank" href="http://www.tid.es/">TID</a></p>
+                            <p>- <a class="link" target="_blank" href="http://brandroom.telefonica.com/users/login.html">Telefonica Brand Room</a></p>
+                            <p>- <a class="link" target="_blank" href="http://glyphicons.com/">Glyphicons</a></p>
+                        </div>
+                        <div class="three-columns-box first">
+                            <h3 class="title telefonica-logo"><img src="{{ page.baseUrl }}img/defLayout/company_logo_grey.svg" onError="onSvgError(this);"></h3>
+                            <p>Portions of this content are ©Telefonica Investigacion y Desarrollo SAU. Content available under a Affero GPL (GPLv3 extension).</p>
+                            <p><a class="link" href="https://github.com/PDI-DGS-Protolab/building-blocks-material" target="_blank">Contribute to this page</a></p>
+                            <p><a class="link" href="mailto:building_blocks@tid.es?Subject=Contact%20Request">Contact Us</a></p>
+                            <p><a class="link" href="{{ page.baseUrl }}legal-notice.html">Terms & Conditions</a></p>
+                        </div>
+                    </div>
+                </div>
+              {% endif %}
+            </footer>
+        </div>
+    </body>
+</html>

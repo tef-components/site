@@ -1,0 +1,26 @@
+- name: check if manager floating ip is already associated
+  shell: neutron --insecure floatingip-list -f csv --quote none | grep {{management_ip}} | cut -d ',' -f 2
+  register: manager_fixed_ip
+
+- name: obtain manager floating ip uuid
+  shell: neutron --insecure floatingip-list -f csv --quote none | grep {{management_ip}} | cut -d ',' -f 1
+  register: manager_ip_uuid
+
+- name: getting manager port uuid
+  shell: nova --insecure interface-list manager | grep 172.16.1 | cut -d '|' -f 3 | tr -d ' '
+  register: manager_port_uuid
+
+- name: sleeping some seconds
+  command: sleep 5
+  when: manager_fixed_ip.stdout.find('172') == -1
+
+- name: assign floating ip to manager
+  command: neutron --insecure floatingip-associate "{{manager_ip_uuid.stdout}}" "{{manager_port_uuid.stdout}}"
+  when: manager_fixed_ip.stdout.find('172') == -1
+
+- name: creating ssh.conf file
+  template: src="{{platon_home}}/scripts/ssh.cfg.template" dest="{{ lookup('env','PWD') }}/ssh.cfg"
+
+- name: Waiting for management node to be available
+  local_action: wait_for port=22 host="{{ management_ip }}" search_regex=OpenSSH delay=5
+  sudo: no

@@ -1,0 +1,112 @@
+---
+layout: default
+---
+{% for link in site.brands_menu %}
+    {% if link.text == page.brand %}
+        {% assign currBrandLink=link.url %}
+    {% endif %}
+{% endfor%}
+
+<div id="intern-content" class="center-container">
+    <div class="left-side" ng-controller='ShowController as headSidemenuCtrl'>
+        {% for section in page.menus %}
+            <div class="sidemenu-container">
+                <div class ="sidemenu-head" ng-click="headSidemenuCtrl.switchToWithToggle('{{ section.text }}')"
+                     ng-class="{'open': headSidemenuCtrl.isSelected('{{ section.text }}')}"
+                >
+                    <img src="{{ page.baseUrl }}img/defLayout/arrow_right_white.svg"
+                                         onError="onSvgError(this);" alt=">" class="menuicon-head"
+                                         ng-class="{down : headSidemenuCtrl.isSelected('{{ menu.text }}')}"/>
+                    <div>{{ section.text }}</div>
+                </div>
+                <div class="sidemenu" ng-class="{'closed': !headSidemenuCtrl.isSelected('{{ section.text }}')}">
+                    <ul>
+                      {% for menu in section.data %}
+                        <div class="submenu-wrapper" ng-controller='ShowController as sidemenuCtrl'>
+                            <a
+                              {% if menu.submenus %}
+                                href = "javascript:void(0)"
+                              {% else %}
+                                href="{{ page.baseUrl }}{{menu.url}}{{currBrandLink}}"
+                              {% endif %}
+                            >
+                                <li ng-click="sidemenuCtrl.switchToWithToggle('{{ menu.text }}')"
+                                  {% if page.currentMenu == menu.text %}
+                                    class="menu-item current"
+                                    ng-init="sidemenuCtrl.init('{{ menu.text }}');"
+                                  {% else %}
+                                    class="menu-item"
+                                  {% endif %}
+                                >
+                                  {% if menu.submenus %}
+                                    <img src="{{ page.baseUrl }}img/defLayout/arrow_right_blue.svg"
+                                         onError="onSvgError(this);" alt=">" class="menuicon"
+                                         ng-class="{down : sidemenuCtrl.isSelected('{{ menu.text }}')}"/>
+                                  {% endif %}
+                                    <div>{{ menu.text }}</div>
+                                </li>
+                            </a>
+                          {% if menu.submenus %}
+                            <div class="submenu" ng-hide="!sidemenuCtrl.isSelected('{{ menu.text }}')">
+                                <ul>
+                                  {% for submenu in menu.submenus %}
+                                    <li
+                                      {%if page.currentSubmenu == submenu.text and page.currentMenu == menu.text %}
+                                        class="current"
+                                      {% endif %}
+                                    >
+                                        <div>
+                                            <a href="{{ page.baseUrl }}{{submenu.url}}{{currBrandLink}}">{{ submenu.text }}</a>
+                                        </div>
+                                    </li>
+                                  {% endfor %}
+                                </ul>
+                            </div>
+                          {% endif %}
+                        </div>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="right-side">
+        <div id="path">{{ page.brand | capitalize }} > {% if page.section != page.currentMenuSection %}{{page.section | capitalize}} > {% endif %}{{page.currentMenuSection | capitalize}} > {% if page.currentSubmenu and page.currentSubmenu != '' %}{{ page.currentMenu }} > <label id="path-last">{{ page.currentSubmenu }}{% else %}<label id="path-last">{{ page.currentMenu }}{% endif %}</label></div>
+        <div id="internal-icons">
+          {% if page.linkGithub and page.linkGithub != '' %}
+            <a popover-trigger="mouseenter" popover="BB on Github" href="{{ site.ghLinksBase }}/tree/{{ site.ghLinksBranch }}/{{page.linkGithub}}"
+               target="_blank" class="internal-icons-item">
+                <img src="{{ page.baseUrl }}img/defLayout/github_icon.svg" class="menuicon-top" onError="onSvgError(this);"/>
+            </a>
+          {% endif %}
+          {% if page.linkBrandRoom and page.linkBrandRoom != '' %}
+            <div class="internal-icons-item" popover-trigger="mouseenter" popover="Go to Brand Room">
+                <a class="link  menuicon-top" href="{{page.linkBrandRoom}}" target="_blank">Access to Brand Room</a>
+            </div>
+          {% endif %}
+          {% if page.linkDownload and page.linkDownload != '' %}
+            <a popover-trigger="mouseenter" popover="Download" href="{{ page.linkDownload }}"
+               target="_blank" class="internal-icons-item">
+                <img src="{{ page.baseUrl }}img/defLayout/download_icon.svg" class="menuicon-top" onError="onSvgError(this);"/>
+            </a>
+          {% elsif page.zipPlunker and page.zipPlunker != '' %}
+            <a popover-trigger="mouseenter" popover="Download" href="{{ page.zipPlunker }}"
+               class="internal-icons-item">
+                <img src="{{ page.baseUrl }}img/defLayout/download_icon.svg" class="menuicon-top" onError="onSvgError(this);"/>
+            </a>
+          {% endif %}
+        </div>
+        <div id="internal-title">{{ page.title }}</div>
+        <div id="internal-text">
+          {% for text in page.text %}
+            <p>{{ text }}</p>
+          {% endfor %}
+        </div>
+        <div id="internal-content">
+          {{content}}
+        </div>
+        <div id="comments">
+          {% include comments.html %}
+        </div>
+    </div>
+</div>

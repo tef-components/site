@@ -1,0 +1,85 @@
+---
+layout: components
+title: Group of buttons
+name: group_of_buttons
+linkGithub: "components/buttons-group"
+linkPlunker: "http://plnkr.co/edit/KjtESmd872mxqPH8t1Yv?p=preview"
+
+currentMenuSection: "Form"
+currentMenu: "Group of buttons"
+currentSubmenu: "Standard"
+text: "Buttons can exist together as a group. In this case buttons may act as a radio button (just one button at the same time is pressed) or check box allowing multiple buttons pressed"
+---
+<div class="content-spacer">
+    <div class="visualization-container">
+
+        <div ng-controller="ShowController as graphicController" ng-init="graphicController.init('states')">
+            <ul class="nav-tab">
+                <li ng-click="graphicController.switchTo('states')" ng-class="{'selected': graphicController.isSelected('states')}">STATES</li>
+            </ul>
+
+            <div class="states-tab tab" ng-show="graphicController.isSelected('states')">
+                <div class="tab-separator"></div>
+                <div class="inner-tab">
+                    <div class="inner-tab-content">
+                        <div class="state clear">
+                            <p class="title">Normal</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.name | downcase }}/states/{{ page.currentSubmenu| downcase}}_state_normal.png"/>
+                                <p class="description">A normal group of buttons allows to <span>choose from different options</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-controller="ShowController as editorController" ng-init="editorController.init('html')" class="editor">
+            <div class="plnkr-link">
+                <a href="{{page.linkPlunker}}" class="small btt-plunker" target="_blank">
+                  Go Plunker
+                </a>
+            </div>
+
+            <ul class="nav-tab">
+                <li ng-click="editorController.switchTo('html')" ng-class="{'selected': editorController.isSelected('html')}">HTML</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('css')" ng-class="{'selected': editorController.isSelected('css')}">CSS</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('source')" ng-class="{'selected': editorController.isSelected('source')}">SOURCE</li>
+            </ul>
+
+            <div class="html-tab tab" ng-show="editorController.isSelected('html')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<div class="btn-group medium">
+    <label class="btn {{page.brand_folder | downcase}} btt-positive"
+           btn-checkbox="">Left</label>
+    <label class="btn {{page.brand_folder | downcase}} btt-positive"
+           btn-checkbox="">Middle</label>
+    <label class="btn {{page.brand_folder | downcase}} btt-positive"
+           btn-checkbox="">Right</label>
+</div>
+
+{% endhighlight %}
+            </div>
+
+            <div class="css-tab tab" ng-show="editorController.isSelected('css')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<link href="bb-button-group.css"
+      rel="stylesheet" type="text/css" />
+<link href="{{page.brand_folder | downcase}}-button-group.css"
+      rel="stylesheet" type="text/css" />
+{% endhighlight %}
+            </div>
+
+            <div class="doc-tab tab" ng-show="editorController.isSelected('source')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<label ng-model="" btn-checkbox="">label_text</label>
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</div>

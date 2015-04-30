@@ -1,0 +1,252 @@
+---
+title: Responsive Default Layout CSS
+baseUrl: "../"
+---
+
+.brand-mobile-menu-container {
+    display: none;
+    float: right;
+    height: 100%;
+    margin: 0 4%;
+}
+
+#brand-mobile-icon {
+    background-image: url('{{ page.baseUrl }}img/defLayout/menu_icon_rounded.png');
+    background: rgba(0,0,0,0) url('{{ page.baseUrl }}img/defLayout/menu_icon_rounded.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100%;
+    display: inline-block;
+    height: 1.75em;
+    vertical-align: middle;
+    width: 1.75em;
+}
+
+#brand-mobile-icon.open {
+    background-image: url('{{ page.baseUrl }}img/defLayout/menu_close.png');
+    background: rgba(0,0,0,0) url('{{ page.baseUrl }}img/defLayout/menu_close.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 70%;
+    background-color: #FFFFFF;
+}
+
+#menu-mobile-icon {
+    background-image: url('{{ page.baseUrl }}img/defLayout/menu_arrow.png');
+    background: rgba(0, 0, 0, 0) url('{{ page.baseUrl }}img/defLayout/menu_arrow.svg');
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: 100%;
+    float: right;
+    height: 100%;
+    width: 1.25em;
+    margin-right: 4%;
+}
+
+#menu-mobile-icon.open {
+    background-image: url('{{ page.baseUrl }}img/defLayout/menu_close.png');
+    background: rgba(0,0,0,0) url('{{ page.baseUrl }}img/defLayout/menu_close.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 70%;
+}
+
+#menu-mobile {
+    display: none;
+    width: 100%;
+    position: relative;
+    clear: both;
+    font-size: 22px;
+}
+
+#menu-mobile a { text-decoration: none; outline: none;}
+#menu-mobile p.mobile-hove {color: #2DC1D5; padding-left: 2%;}
+#menu-mobile p:not(.mobile-hove) {color: #003245; padding-left: 2%;}
+
+#menu-mobile>div {
+    width: 100%;
+    display: block;
+    height: 1.75em;
+    vertical-align: middle;
+    border-bottom: 2px solid #DBE0E4;
+}
+
+#menu-mobile p {
+    display: inline-block;
+    padding-top: 5px;
+}
+
+#menu-mobile>ul {
+    list-style: none;
+    position: absolute;
+    width:100%;
+    background-color: #E8EBEE;
+    transition: max-height .3s linear 0s;
+    -webkit-transition: max-height .3s linear 0s;
+    -moz-transition: max-height .3s linear 0s;
+    -o-transition: max-height .3s linear 0s;
+    height: auto;
+    max-height: 250px;
+    overflow: hidden;
+}
+
+#menu-mobile>ul.ng-hide {
+    max-height: 0;
+}
+
+#menu-mobile>ul>li {
+    display: block;
+    width:100%;
+    height: 1.75em;
+    vertical-align: middle;
+    padding-left: 2%;
+}
+
+#menu-mobile {
+    display:none;
+    width: 100%;
+    position: relative;
+    clear: both;
+    font-size: 22px;
+}
+
+#brand-dropdown-mobile a {
+    color: #000000;
+    font-size: 16px;
+}
+
+#brand-dropdown-mobile {
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    display: block;
+    line-height: 1.4em;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 58px;
+    width: 150px;
+    z-index: 100;
+}
+
+#brand-dropdown-mobile.ng-hide-add li {
+    display: none;
+}
+
+#brand-dropdown-mobile>li {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px 10px 3px 50px;
+}
+
+#brand-dropdown-mobile>li:not(:last-child) {
+    border-bottom: 1px solid #F3F3F3;
+    -webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+}
+
+#main, #bg-subheader, #bg-header, .company-logo-container img, #brand-dropdown-mobile {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+@media (max-width: 900px) {
+    #menu {
+        padding: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    header {
+        position: fixed;
+    }
+
+    #main {
+        background-color: #F0F4F7;
+        padding-top: 9.8em;
+    }
+
+    body.resize #bg-subheader {
+        height: 0;
+    }
+
+    body.resize #bg-header {
+        height: 3.2em;
+        line-height: 3.2em;
+    }
+
+    body.resize #main {
+        padding-top: 9.3em;
+    }
+
+    body.resize .company-logo-container img {
+        width: 5.5em;
+    }
+
+    body.resize #brand-dropdown-mobile {
+        top: 40px;
+    }
+
+    .three-columns .three-columns-box {
+        border-left: 0em solid #DEDDDC;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        float: left;
+        width: 100%;
+    }
+
+    #menu, #top-bar {
+        display: none;
+    }
+
+    #menu-mobile, .brand-mobile-menu-container {
+        cursor: pointer;
+        display: block;
+        position: relative;
+    }
+
+    footer .primary-footer li {
+        border-left: 0px solid black;
+        display: block;
+        margin-top: 7px;
+    }
+
+    footer .primary-footer ul {
+        padding-bottom: 1.35em;
+    }
+
+    .company-logo-container {
+        margin-left: 4%;
+    }
+
+    .product-logo {
+        padding: 0;
+    }
+
+    .product-logo-container {
+        margin-right: 0;
+    }
+
+    .sub-footer p {
+        padding-bottom: 1em;
+    }
+}
+
+@media (min-width: 470px) and (max-width: 640px) {
+    body.resize .product-logo {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 470px) {
+    body .product-logo {
+        font-size: 1.2em;
+    }
+
+    .company-logo-container img {
+        width: 5.5em;
+    }
+}

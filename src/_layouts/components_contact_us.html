@@ -1,0 +1,85 @@
+---
+layout: components
+title: Contact us
+linkGithub: "components/contactus"
+linkPlunker: "http://plnkr.co/edit/YVmJJ1jQ1rK3diyASGu5?p=preview"
+
+currentMenuSection: "Dialogs"
+currentMenu: "Contact us form"
+currentSubmenu: ""
+text: "The contact us is a general form that we have in our sites, we predesign a form with common validations and routing with home."
+---
+<div class="content-spacer">
+    <div class="visualization-container">
+
+        <div ng-controller="ShowController as graphicController" ng-init="graphicController.init('states')">
+            <ul class="nav-tab">
+                <li ng-click="graphicController.switchTo('states')" ng-class="{'selected': graphicController.isSelected('states')}">EXAMPLE</li>
+                <li class="sep"></li>
+            </ul>
+
+            <div class="states-tab tab" ng-show="graphicController.isSelected('states')">
+                <div class="tab-separator"></div>
+                <div class="inner-tab">
+                    <div class="inner-tab-content">
+                        <div class="state clear">
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/contact_us/contact_us.png"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-controller="ShowController as editorController" ng-init="editorController.init('html')" class="editor">
+            <div class="plnkr-link">
+                <a href="{{page.linkPlunker}}" class="small btt-plunker" target="_blank">
+                  Go Plunker
+                </a>
+            </div>
+
+            <ul class="nav-tab">
+                <li ng-click="editorController.switchTo('html')" ng-class="{'selected': editorController.isSelected('html')}">HTML</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('css')" ng-class="{'selected': editorController.isSelected('css')}">CSS</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('js')" ng-class="{'selected': editorController.isSelected('js')}">JS</li>
+                <li class="sep"></li>
+            </ul>
+
+            <div class="html-tab tab" ng-show="editorController.isSelected('html')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<!--You can see the HTML code of Captcha on plunker.-->
+{% endhighlight %}
+            </div>
+
+            <div class="css-tab tab" ng-show="editorController.isSelected('css')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<link href="bb-form.css"
+      rel="stylesheet" type="text/css">
+<link href="bb-contactus.css"
+      rel="stylesheet" type="text/css">
+<link href="bb-input.css"
+      rel="stylesheet" type="text/css">
+<link href="bb-button.css"
+      rel="stylesheet" type="text/css">
+<link href="{{ page.brand_folder | downcase }}-input.css"
+      rel="stylesheet" type="text/css">
+<link href="{{ page.brand_folder | downcase }}-button.css"
+      rel="stylesheet" type="text/css">
+{% endhighlight %}
+            </div>
+
+            <div class="doc-tab tab" ng-show="editorController.isSelected('js')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<script src="angular.min.js"
+        type="text/javascript"></script>
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</div>

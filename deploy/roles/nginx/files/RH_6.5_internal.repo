@@ -1,0 +1,9 @@
+[RH_6.5]
+name=Red Hat 6.5
+enabled=1
+gpgcheck=0
+notify=Exec['yum_clean_all']
+proxy=http://prod-epg-ost-proxy-01.hi.inet:6666
+baseurl=http://repos.hi.inet/redhat/centos6.5-x86_64/RPMS.all/
+
+

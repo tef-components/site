@@ -1,0 +1,74 @@
+@media (min-width: 901px) {
+    .left-side {
+        padding-left: 63px;
+        width: 242px;
+        float: left;
+    }
+
+    .sidemenu-head .menuicon-head {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .sidemenu-container {
+        margin: 0;
+        padding: 0;
+    }
+
+    .sidemenu {
+        transition: max-height .9s ease-in-out 0s;
+        -webkit-transition: max-height .9s ease-in-out 0s;
+        -moz-transition: max-height .9s ease-in-out 0s;
+        -o-transition: max-height .9s ease-in-out 0s;
+        /* This limit is used to display transition, if necessary can be increased */
+        max-height: 2000px;
+        overflow: hidden;
+        padding-top: 2px;
+        width: 100%;
+    }
+
+    .sidemenu.closed {
+        max-height: 0;
+    }
+
+    .sidemenu-head {
+        color: #FFFFFF;
+        background-color: #C3CFDD;
+        cursor: pointer;
+    }
+
+    .left-side {
+        padding: 1.5em 2% 1.5em 2%;
+        margin: auto;
+        max-width: 450px;
+    }
+
+    .right-side {
+        padding-left: 2%;
+        padding-right: 2%;
+        margin: auto;
+        max-width: 742px;
+    }
+
+    #path {
+        margin-top: 0;
+    }
+
+    .content-spacer {
+        padding: 3%;
+    }
+
+    .tooltip-top-github:hover:after {
+        right: 40px;
+    }
+
+    .tab .clear>div>img {
+        max-width: 100%;
+    }
+
+    .tab .clear>div>p {
+        max-width: 100%;
+        display: block;
+    }
+}

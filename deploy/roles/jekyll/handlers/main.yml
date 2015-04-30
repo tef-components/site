@@ -1,0 +1,5 @@
+- name: wbb-start
+  service: name=wbb state=started
+
+- name: wbb-restart
+  service: name=wbb state=restarted

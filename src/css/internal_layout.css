@@ -1,0 +1,469 @@
+#intern-content {
+    background: #F0F4F7;
+    padding: 0em 0em 2em 0em;
+    height: auto;
+    content: auto;
+}
+
+.left-side {
+    padding-top: 73px;
+    color: #003245;
+}
+
+.sidemenu-container {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.sidemenu-head {
+    border-radius: 3px;
+    font-family: TelefonicaText, Arial, Helvetica, sans-serif;
+    font-size: 1.125em;
+    height: 2.5em;
+    line-height: 2.5em;
+    padding-left: 2.2em;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.sidemenu {
+    padding-top: 2px;
+    width: 242px;
+}
+
+.right-side {
+    padding-left: 45px;
+    padding-right: 63px;
+    margin-left: 305px;
+    max-width: 742px;
+}
+
+.sidemenu a {
+    text-decoration: none;
+    outline: none;
+    color: inherit;
+}
+
+.submenu-wrapper>a>li, .submenu>ul>li {
+    border-bottom: 2px solid #F0F4F7;
+    border-radius: 3px;
+    height: 35px;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 2.5em;
+    position: relative;
+}
+
+.submenu-wrapper>a>li {
+    background-color: #F9FBFC;
+}
+
+.submenu>ul>li {
+    background-color: white;
+}
+
+.menu-item>div {
+    font-family: TelefonicaText, Arial, Helvetica, sans-serif;
+    font-size: 1.125em;
+    line-height: 0;
+    position: absolute;
+    top:50%;
+}
+
+.submenu>ul>li>div {
+    font-family: TelefonicaText, Arial, Helvetica, sans-serif;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+}
+
+.sidemenu .current {
+    color:#2DC1D5;
+}
+
+.submenu {
+    transition: max-height .3s linear 0s;
+    -webkit-transition: max-height .3s linear 0s;
+    -moz-transition: max-height .3s linear 0s;
+    -o-transition: max-height .3s linear 0s;
+    height: auto;
+    /* This limit is used to display transition, if necessary can be increased */
+    max-height: 400px;
+    overflow: hidden;
+}
+
+.submenu.ng-hide {
+    max-height: 0px;
+}
+
+img.menuicon, img.menuicon-head {
+    float: left;
+    margin-top: 10px;
+    height: 15px;
+    margin-left: -30px;
+}
+
+img.menuicon.down, .sidemenu-head.open .menuicon-head {
+    -ms-transform: rotate(90deg);     /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+}
+
+img.menuicon-head {
+    margin-top: 16px;
+}
+
+#comments {
+    background: #ffffff;
+    height: auto;
+    padding: 0 42px 0 42px;
+}
+
+#path {
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 45px;
+}
+
+#internal-icons {
+    margin-right: 2em;
+    margin-top: 2em;
+    float: right;
+}
+
+#internal-icons .internal-icons-item {
+    display: inline-block;
+    float: right;
+    padding: 0.5em;
+}
+
+#internal-icons .menuicon-top {
+    height: 32px;
+    width: 32px;
+}
+
+#path-last {
+    color: #2DC1D5;
+}
+
+#internal-title {
+    margin-top: 26px;
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: #2DC1D5;
+}
+
+#internal-text {
+    font-size: 16px;
+    margin-bottom: 45px;
+}
+
+#internal-text p {
+    padding-bottom: 0.25em;
+    padding-top: 0.25em;
+}
+
+#internal-content {
+    margin-bottom: 0.75em;
+}
+
+.content-spacer {
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    padding: 3em;
+}
+
+.visualization-container h4 {
+    background: #C3CFDB;
+    color: #595959;
+    font-size: 16px;
+    padding: 5px 15px;
+    margin: 0;
+    text-shadow: none;
+    font-weight: bold;
+}
+
+.visualization-container .inner-tab {
+    padding: 30px 15px;
+    border: 1px solid #e1e1e8;
+    text-align: center;
+    overflow: hidden;
+}
+
+.inner-tab-content {
+    text-align: left;
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.visualization-container .lf-tab .lf {
+    align-content: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width: 100%;
+}
+
+.visualization-container .tab {
+    background-color: #F9FBFC;
+}
+
+.visualization-container .tab-separator {
+    background-color: #c3cfdd;
+    height: 10px;
+}
+
+.visualization-container .editor {
+    padding-top: 50px;
+}
+
+.tab img {
+    display: inline-block;
+    max-width: 100%;
+    padding: 0px 3% 10px 0px;
+}
+
+.tab img.more_padding {
+    padding-right: 73px;
+}
+
+.tab .clear {
+    display: block;
+    padding: 0 15px;
+    text-align: left;
+    max-width: 95%;
+}
+
+.tab .clear>div>img {
+    max-width: 40%;
+    box-sizing: border-box;
+}
+
+.tab .clear>div>img:last-child {
+    max-width: 100%;
+}
+
+.tab .clear>div>p {
+    max-width: 57%;
+    box-sizing: border-box;
+}
+
+.tab .title {
+    font-weight: bold;
+    padding: 10px 0 5px 0;
+    font-size: 14px;
+    max-width: 95%;
+}
+
+.tab .description {
+    padding: 0;
+    color: #000000;
+    font-weight: lighter;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    vertical-align: top;
+    max-width: 360px;
+}
+
+.tab .long-description {
+    width: 360px;
+}
+
+.tab .description span {
+    font-weight: bold;
+}
+
+.plnkr-link {
+    float: right;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    background-color: rgba(72, 72, 72, 0.0);
+    margin-top: 15px;
+    height: 56px;
+}
+
+a.small.btt-plunker {
+    font-size: 11px;
+    width: 93px;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.8em 1em;
+    color: white;
+    cursor: pointer;
+    background: #007486;
+    border-radius: 3px;
+    z-index: 1;
+}
+
+.small.btt-plunker:hover {
+    color: white;
+    cursor: pointer;
+    background: #077B8D;
+    border: none;
+}
+
+
+.visualization-container .example-tab, .visualization-container .css-tab {
+    margin-bottom: 1.5em;
+}
+
+.visualization-container .nav-tab {
+    color: #595959;
+    font-size: 16px;
+    margin: 0 0 -4px 0;
+    text-shadow: none;
+    font-weight: normal;
+    display: inline-block;
+}
+
+.visualization-container .nav-tab li {
+    text-align: center;
+    cursor: pointer;
+    display: table-cell;
+    background-color: #eef3f8;
+    padding: 18px 18px;
+    color: #838686;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-right: 2px solid transparent;
+}
+
+.visualization-container .nav-tab li.sep {
+    width: 2px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+.visualization-container .nav-tab li.selected {
+    font-weight: bold;
+    background-color: #c3cfdd;
+    color: #FFFFFF;
+}
+
+.visualization-container .nav-tab li:hover:not(.selected) {
+    color: #C5C5C0;
+}
+
+.content-component {
+}
+
+.accordion-parts {
+    padding: 0.88em 0 2em 0;
+}
+
+.accordion-parts li {
+    display: inline-block;
+    padding-top: 1.12em;
+    width: 100%;
+}
+
+.accordion-parts li .menuicon {
+    display: inline-table;
+    margin-left: 0;
+
+}
+
+.accordion-parts .bottons-list:hover {
+    cursor: pointer;
+}
+
+.accordion-parts .buttons-text {
+    display: inline-table;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-left: 20px;
+}
+
+.accordion-parts .content-button-show {
+    margin-top: 35px;
+}
+
+.buttons-img {
+    display: inline-table;
+    float: right;
+}
+
+.building-blocks-download a:first-child {
+    color: #003245;
+    display: block;
+}
+
+.building-blocks-download a:nth-child(2) {
+    color: #003245;
+    padding-top: 20px;
+    display: block;
+}
+
+
+.icon-download {
+    float: left;
+}
+
+.text-download {
+    padding-left: 53px;
+    padding-top: 7px;
+}
+
+.bloc-tab {
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    margin: 10px 0px 10px 0px;
+}
+
+.content-example {
+    padding: 25px;
+    text-align: center;
+}
+
+.example-img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#menu-intern {
+    overflow: hidden;
+}
+
+#dev-menu {
+    background-color: #F9FBFC;
+}
+
+#dev-menu p {
+    line-height: 35px;
+}
+
+#dev-menu>li {
+    background-color: #F9FBFC;
+    cursor: pointer;
+    float: left;
+    height: 39px;
+    letter-spacing: normal;
+    margin-right: 3px;
+    max-width: 160px;
+    text-align: center;
+    vertical-align: middle;
+    width: 32%;
+    border-radius: 3px;
+    margin-bottom: -4px;
+}
+
+#dev-menu>li.selected {
+    background-color: #ffffff;
+    color: #2DC1D5;
+    box-shadow: 0px 3px 6px 0px #DEDDDC;
+}
+
+#dev-menu>li:last-of-type {
+    margin-right: 0;
+}
+
+div.centered > img, div.centered > p {
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
+}
+

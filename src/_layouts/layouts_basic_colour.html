@@ -1,0 +1,28 @@
+---
+layout: layouts
+title: Basic elements
+
+currentMenuSection: "Internal System"
+currentMenu: "Basic elements"
+currentSubmenu: "Colour"
+internalTitle: "Colour"
+internalImage: "layouts/basic_colour.png"
+---
+<div class="content-spacer layouts-internal-content">
+    <h2>{{ page.internalTitle }}</h2>
+    <div class="internal-text-container">
+        <p>Brand colors allow the user to identify and connect with the brand. The perception of color often influences the choices a user makes within a site or application, so the goal is to be consistent in the use of the brand color palette.</p>
+        <p>Brand colors can be used in striking or subtle variations, depending on how and where they are used. Colors that go beyond the brand color palette should be applied only when necessary.</p>
+        <p>Semantic styling is based on design intent and sensitivity, and can be used freely to get the best results in each scenario. However, make sure to be precise and convey meaning; do not overplay styling based only on visual effect.</p>
+    </div>
+    <div class="internal-image-container spaced">
+        <img class="image-container-middle" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.internalImage }}" />
+    </div>
+    <div class="internal-text-container">
+        <h3 class="space-before">Semantic Styling</h3>
+        <p><span class="text-bold">Neutral:</span> Neutral styling is the default and should be applied whenever there is no strong reason to do otherwise</p>
+        <p><span class="text-bold">Positive:</span> Positive styling is reserved for particularly important actions. There should only be one positive button per context</p>
+        <p><span class="text-bold">Negative:</span> Negative styling implies a significant negative input; they should only be used where a negative input has serious, lasting effects that the user needs to be warned about. Examples include: aborting a download, canceling a subscription, submitting a negative rating, etc</p>
+        <p><span class="text-bold">Subdued:</span> Subdued styling is not the default; they are used to intentionally downplay secondary actions like “Back” or “Cancel”.</p>
+    </div>
+</div>

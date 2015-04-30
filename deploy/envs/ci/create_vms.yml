@@ -1,0 +1,47 @@
+---
+# This Playbook creates only one VMs connected to only the external networkd
+
+- hosts: 127.0.0.1
+  connection: local
+  vars:
+    platon_home: "{{ ansible_env.PLATON_HOME }}"
+    installing_group: "{{ ansible_env.INSTALLING_GROUP }}"
+  vars_files:
+    - config.json
+    - "tenants/{{ lookup('env','OS_TENANT_NAME') }}.yml"
+  tasks:
+    - name: create jekyll VM
+      vm:
+        name: group_{{installing_group}}_ci_wbb
+        image_id: "{{VMS.ubuntu}}"
+        flavor_id: 103
+        security_groups:
+          - name: default
+          - name: LB-ssh_security_group
+          - name: LB-http_security_group
+        user_data: "{{platon_home}}/userdatas/2_NICS_ubuntu.sh"
+        meta:
+          ansible_host_groups: jekyll
+          deployment_group: "{{ installing_group }}"
+        nics:
+          - name: private_management
+          - name: private_external
+
+    - name: create aux node (manager and nginx)
+      vm:
+        name: manager
+        image_id: "{{VMS.centos}}"
+        flavor_id: 101
+        security_groups:
+          - name: default
+          - name: LB-ssh_security_group
+          - name: LB-http_security_group
+        user_data: "{{platon_home}}/userdatas/2_NICS.sh"
+        meta:
+          ansible_host_groups: manager, nginx
+          deployment_group: common
+        nics:
+          - name: private_management
+          - name: private_external
+
+    - include: ../../tasks/associate_manager_floating_ip.yml

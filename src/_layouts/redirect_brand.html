@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script>
+    var match = RegExp('[?&]brand=([^&]*)').exec(window.location.search);
+    var brand = match && decodeURIComponent(match[1].replace(/\+/g, ' ')) || 'telefonica';
+    window.location.replace('{{ page.baseUrl }}{{ page.destination }}_' + brand + '.html');
+</script>
+</head>
+</html>

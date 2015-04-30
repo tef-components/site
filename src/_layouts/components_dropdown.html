@@ -1,0 +1,152 @@
+---
+layout: components
+title: Dropdown
+
+currentMenuSection: "Form"
+currentMenu: "Dropdown"
+currentSubmenu: "Standard"
+linkPlunker: "http://plnkr.co/edit/hAmaWbULn0ibTxWXd5hB?p=preview"
+linkGithub: "components/dropdown"
+text: "A dropdown allows the user to choose one value from a list"
+---
+<div class="content-spacer">
+    <div class="visualization-container">
+
+        <div ng-controller="ShowController as graphicController" ng-init="graphicController.init('states')">
+            <ul class="nav-tab">
+                <li ng-click="graphicController.switchTo('states')" ng-class="{'selected': graphicController.isSelected('states')}">STATES</li>
+                <li class="sep"></li>
+                <li ng-click="graphicController.switchTo('sizes')" ng-class="{'selected': graphicController.isSelected('sizes')}">SIZES</li>
+            </ul>
+
+            <div class="states-tab tab" ng-show="graphicController.isSelected('states')">
+                <div class="tab-separator"></div>
+                <div class="inner-tab">
+                    <div class="inner-tab-content">
+                        <div class="state clear">
+                            <p class="title">Normal</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/states/{{ page.currentSubmenu| downcase}}_state_normal.png"/>
+                                <p class="description">An enabled dropdown field is ready to <span>present to users a list of options</span></p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="state clear">
+                            <p class="title">Focused</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/states/{{ page.currentSubmenu| downcase}}_state_focused.png"/>
+                                <p class="description">An focused dropdown <span>highlights when user is selecting</span> an option</p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="state clear">
+                            <p class="title">Disabled</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/states/{{ page.currentSubmenu| downcase}}_state_disabled.png"/>
+                                <p class="description"> A disabled dropdown <span> will not open or close </span> </p>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sizes-tab tab" ng-show="graphicController.isSelected('sizes')">
+                <div class="tab-separator"></div>
+                <div class="inner-tab">
+                    <div class="inner-tab-content">
+                        <div class="size clear">
+                            <p class="title">Small</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/sizes/{{ page.currentMenu| downcase}}/{{ page.currentSubmenu| downcase}}_size_small.png"/>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="size clear">
+                            <p class="title">Medium</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/sizes/{{ page.currentMenu| downcase}}/{{ page.currentSubmenu| downcase}}_size_medium.png"/>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="size clear">
+                            <p class="title">Large</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/sizes/{{ page.currentMenu| downcase}}/{{ page.currentSubmenu| downcase}}_size_large.png"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-controller="ShowController as editorController" ng-init="editorController.init('html')" class="editor">
+            <div class="plnkr-link">
+                <a href="{{page.linkPlunker}}" class="small btt-plunker" target="_blank">
+                  Go Plunker
+                </a>
+            </div>
+
+            <ul class="nav-tab">
+                <li ng-click="editorController.switchTo('html')" ng-class="{'selected': editorController.isSelected('html')}">HTML</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('css')" ng-class="{'selected': editorController.isSelected('css')}">CSS</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('source')" ng-class="{'selected': editorController.isSelected('source')}">SOURCE</li>
+            </ul>
+
+            <div class="html-tab tab" ng-show="editorController.isSelected('html')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<div class="dropdown-group {{page.brand_folder | downcase}}" dropdown>
+    <button type="button"
+            class="dropdown-{{page.brand_folder | downcase}} btn-primary dropdown-toggle telefonica">
+        {{selectedAction1}} <span class="caret medium"></span>
+    </button>
+    <ul class="dropdown-menu medium"  role="menu">
+        <li class="dropdown-item medium">
+            <a href="" >
+                January
+            </a>
+        </li>
+    </ul>
+</div>
+{% endhighlight %}
+            </div>
+
+            <div class="css-tab tab" ng-show="editorController.isSelected('css')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<link href="bb-dropdown.css"
+      rel="stylesheet" type="text/css"/>
+<link href="bb-checkbox.css"
+      rel="stylesheet" type="text/css"/>
+<link href="glyphicons-halflings.css"
+      rel="stylesheet" type="text/css" />
+{% endhighlight %}
+            </div>
+
+            <div class="doc-tab tab" ng-show="editorController.isSelected('source')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<div dropdown>
+    <button type="button" ng-disabled="">
+        {{selectedAction1}} <span class="caret"></span>
+    </button>
+    <ul role="menu">
+        <li ng-repeat="" ng-click="">
+            <a href >
+                text
+            </a>
+        </li>
+    </ul>
+</div>
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</div>

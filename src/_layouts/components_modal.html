@@ -1,0 +1,70 @@
+---
+layout: components
+title: Modal window
+linkGithub: "components/modal"
+linkPlunker: "http://plnkr.co/edit/Bl3q2I90JPn9x6qTOX45?p=preview"
+
+currentMenuSection: "Dialogs"
+currentMenu: "Modal window"
+currentSubmenu: "Standard"
+text: "The basic dialog window is an overlay positioned within the viewport and is protected from page content (like select elements) shining through with an iframe. It has a title bar and a content area, and can be moved, resized and closed with the 'x' icon by default."
+---
+<div class="content-spacer">
+    <div class="visualization-container">
+
+        <div ng-controller="ShowController as graphicController" ng-init="graphicController.init('example')">
+            <ul class="nav-tab">
+                <li ng-click="graphicController.switchTo('example')" ng-class="{'selected': graphicController.isSelected('example')}">EXAMPLE</li>
+            </ul>
+
+            <div class="states-tab tab" ng-show="graphicController.isSelected('example')">
+                <div class="tab-separator"></div>
+                <div class="inner-tab">
+                    <div class="inner-tab-content">
+                        <div class="state clear">
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/modal/modal.png"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-controller="ShowController as editorController" ng-init="editorController.init('html')" class="editor">
+            <div class="plnkr-link">
+                <a href="{{page.linkPlunker}}" class="small btt-plunker" target="_blank">
+                    Go Plunker
+                </a>
+            </div>
+
+            <ul class="nav-tab">
+                <li ng-click="editorController.switchTo('html')" ng-class="{'selected': editorController.isSelected('html')}">HTML</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('css')" ng-class="{'selected': editorController.isSelected('css')}">CSS</li>
+            </ul>
+
+            <div class="html-tab tab" ng-show="editorController.isSelected('html')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<!--You can see the HTML code of Modal Window on plunker.-->
+{% endhighlight %}
+            </div>
+
+            <div class="css-tab tab" ng-show="editorController.isSelected('css')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<link href="bb-button.css"
+      rel="stylesheet" type="text/css">
+<link href="{{ page.brand_folder | downcase }}-button.css"
+      rel="stylesheet" type="text/css"/>
+<link href="bb-form.css"
+      rel="stylesheet" type="text/css"/>
+<link href="bb-modal.css"
+      rel="stylesheet" type="text/css"/>
+{% endhighlight %}
+            </div>
+
+        </div>
+    </div>
+</div>

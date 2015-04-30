@@ -1,0 +1,103 @@
+---
+layout: components
+title: Radio Buttons
+name: radio
+
+currentMenuSection: "Form"
+currentSubmenu: "Standard"
+currentMenu: "Radio"
+linkPlunker: "http://plnkr.co/edit/nBa4byuWUhvzXo4uaMJp?p=preview"
+linkGithub: "components/radio-button"
+text: "A radio visually indicates the status of a user's selection"
+---
+<div class="content-spacer">
+    <div class="visualization-container">
+
+        <div ng-controller="ShowController as graphicController" ng-init="graphicController.init('states')">
+            <ul class="nav-tab">
+                <li ng-click="graphicController.switchTo('states')" ng-class="{'selected': graphicController.isSelected('states')}">STATES</li>
+            </ul>
+
+            <div class="states-tab tab" ng-show="graphicController.isSelected('states')">
+                <div class="tab-separator"></div>
+                <div class="inner-tab">
+                    <div class="inner-tab-content">
+                        <div class="state clear">
+                            <p class="title">Selected</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.name | downcase }}/states/{{ page.currentSubmenu| downcase}}_state_selected.png"/>
+                                <p class="description">A selected radio indicates <span>user chooses</span> the presented option</p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="state clear">
+                            <p class="title">Unselected</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.name | downcase }}/states/{{ page.currentSubmenu| downcase}}_state_unselected.png"/>
+                                <p class="description">An unselected radio indicates <span>user disclaims</span> the presented option</p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="state clear">
+                            <p class="title">Disabled</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.name | downcase }}/states/{{ page.currentSubmenu| downcase}}_state_disabled.png"/>
+                                <p class="description">A disabled radio indicates <span>user is not allowed to choose</span> the presented option</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-controller="ShowController as editorController" ng-init="editorController.init('html')" class="editor">
+            <div class="plnkr-link">
+                <a href="{{page.linkPlunker}}" class="small btt-plunker" target="_blank">
+                  Go Plunker
+                </a>
+            </div>
+
+            <ul class="nav-tab">
+                <li ng-click="editorController.switchTo('html')" ng-class="{'selected': editorController.isSelected('html')}">HTML</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('css')" ng-class="{'selected': editorController.isSelected('css')}">CSS</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('source')" ng-class="{'selected': editorController.isSelected('source')}">SOURCE</li>
+            </ul>
+
+            <div class="html-tab tab" ng-show="editorController.isSelected('html')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<div>
+    <input type="radio" class="{{page.brand_folder | downcase}}"/>
+    <label> Red </label>
+</div>
+{% endhighlight %}
+            </div>
+
+            <div class="css-tab tab" ng-show="editorController.isSelected('css')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<link href="bb-radio-button.css" rel="stylesheet"
+      type="text/css" />
+{% endhighlight %}
+            </div>
+
+            <div class="doc-tab tab" ng-show="editorController.isSelected('source')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<input type="radio"
+       value=""
+       name=""
+       ng-model=""
+       ng-change=""
+       ng-value=""
+>
+</input>
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</div>

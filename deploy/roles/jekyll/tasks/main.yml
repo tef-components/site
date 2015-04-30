@@ -1,0 +1,49 @@
+- name: Check if jekyll is installed
+  stat: path=/home/cloud-user/.gem/ruby/1.9.1/bin/jekyll
+  register: jekyll_installed
+
+- name: apt-get update
+  sudo: yes
+  shell: apt-get update
+  when: jekyll_installed.stat.exists == false
+
+- name: Install WBB environment software
+  sudo: yes
+  apt: name={{item}} state=installed
+  with_items:
+    - git
+    - make
+    - ruby1.9.3
+    - nodejs
+    - zip
+
+- name: installing jekyll
+  gem: name=jekyll user_install=true
+
+- name: disable git SSL verification
+  shell: git config --global http.sslVerify false
+
+- name: clone WWB git repository
+  git:
+    repo=https://visitor:visitor@pdihub.hi.inet/TDAF/building-blocks-site.git
+    dest=/home/cloud-user/building-blocks-site
+    accept_hostkey=yes
+    version=develop
+
+- name: enable git SSL verification
+  shell: git config --global http.sslVerify true
+
+- name: kill jekyll if it's running
+  register: command_result
+  shell: kill -9 `pidof ruby1.9.1`
+  failed_when: "false"
+
+- name: build content
+  command: chdir=/home/cloud-user/building-blocks-site/src $HOME/.gem/ruby/1.9.1/bin/jekyll build --source .
+
+- name: generating ZIP files
+  command: chdir=/home/cloud-user/building-blocks-site ./compress.sh
+
+- name: execute jekyll on repository
+  command: chdir=/home/cloud-user/building-blocks-site/src $HOME/.gem/ruby/1.9.1/bin/jekyll serve --skip-initial-build --detach  --host 0.0.0.0
+

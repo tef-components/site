@@ -1,0 +1,61 @@
+- name: obtain external network uuid
+  shell: neutron --insecure net-list --quote minimal -f csv | grep {{NETWORKING.shared_external_net_name}} | cut -d ',' -f 1
+  register: ext_net_uuid
+
+- name: obtain management network uuid
+  shell: neutron --insecure net-list --quote minimal -f csv | grep {{NETWORKING.shared_management_net_name}} | cut -d ',' -f 1
+  register: mgmt_net_uuid
+
+- name: check if HEAT template is already deployed
+  command: heat -k stack-show {{ stack_name }}
+  ignore_errors: True
+  register: stack_created
+
+- name: invoking HEAT for creating base network infrastructure
+  command: >
+    heat -k --os-tenant-name {{tenant_name}}
+    stack-create
+    -f {{platon_home}}/scripts/heat/lb.yaml
+    -P dns_server_1={{NETWORKING.dns_server_1}}
+    -P dns_server_2={{NETWORKING.dns_server_2}}
+    -P shared_external_net_id={{ext_net_uuid.stdout}}
+    -P shared_management_net_id={{mgmt_net_uuid.stdout}}
+    {{ stack_name }}
+  when: stack_created.rc != 0
+
+# Waits 180"
+- name: wait until HEAT is created
+  command: heat -k stack-show {{ stack_name }}
+  register: result
+  until: result.stdout.find("CREATE_COMPLETE") != -1
+  retries: 36
+  delay: 5
+
+- name: check if HEAT template is already deployed
+  command: heat -k stack-show {{ stack_service_name }}
+  ignore_errors: True
+  register: stack_service_created
+
+- name: invoking HEAT for creating service infrastructure
+  command: >
+    heat -k --os-tenant-name {{tenant_name}}
+    stack-create
+    -f {{deploy_home}}/network/custom_heat_template.yml
+    {{ stack_service_name }}
+  when: stack_service_created.rc != 0
+
+# Waits 180"
+- name: wait until HEAT is created
+  command: heat -k stack-show {{ stack_service_name }}
+  register: result
+  until: result.stdout.find("CREATE_COMPLETE") != -1
+  retries: 36
+  delay: 5
+
+- name: obtain PRIVATE management subnet uuid
+  shell: neutron --insecure subnet-list --quote minimal -f csv | grep private_management_subnet | cut -d ',' -f 1
+  register: private_management_subnet_uuid
+
+# In DSN, we can not use the host-route option in the HEAT template so we manage it here
+- name: adding host route
+  command: neutron --insecure subnet-update {{private_management_subnet_uuid.stdout}} --host-route destination={{NETWORKING.host_route_network}},nexthop=172.16.1.1

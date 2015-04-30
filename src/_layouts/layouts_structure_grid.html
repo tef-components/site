@@ -1,0 +1,80 @@
+---
+layout: layouts
+title: Grid
+linkGithub: "layouts/grid"
+linkPlunker: "http://plnkr.co/edit/GnMTnASFnFtSxeP2cB0G?p=preview"
+
+currentMenuSection: "Internal System"
+currentMenu: "Website structure"
+currentSubmenu: "Grid"
+internalTitle: "Grid"
+internalImage: "layouts/structure_grid.png"
+text: "Grid columns have vertical spacing above and below each column to create vertical flow between columns. Consecutive grids will automatically preserve row spacing between grids."
+---
+<div class="content-spacer">
+    <div class="visualization-container">
+        <div ng-controller="ShowController as graphicController" ng-init="graphicController.init('example')">
+
+            <ul class="nav-tab">
+                <li ng-click="graphicController.switchTo('example')" ng-class="{'selected': graphicController.isSelected('example')}">EXAMPLE</li>
+            </ul>
+
+            <div class="states-tab tab" ng-show="graphicController.isSelected('example')">
+                <div class="tab-separator"></div>
+                <div class="inner-tab">
+                    <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.internalImage }}"/>
+                </div>
+            </div>
+        </div>
+
+        <div ng-controller="ShowController as editorController" ng-init="editorController.init('html')" class="editor">
+            <div class="plnkr-link">
+                <a href="{{page.linkPlunker}}" class="small btt-plunker" target="_blank">
+                    Go Plunker
+                </a>
+            </div>
+
+            <ul class="nav-tab">
+                <li ng-click="editorController.switchTo('html')" ng-class="{'selected': editorController.isSelected('html')}">HTML</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('css')" ng-class="{'selected': editorController.isSelected('css')}">CSS</li>
+                <li class="sep"></li>
+            </ul>
+            <div class="html-tab tab" ng-show="editorController.isSelected('html')">
+                <div class="tab-separator"></div>
+                {% highlight html linenos=table %}
+<div class="grid-container">
+     <div class="grid-item">
+          Component1
+     </div>
+     <div class="grid-item">
+           Component2
+      </div>
+      <!-- ... -->
+</div>
+                {% endhighlight %}
+            </div>
+            <div class="css-tab tab" ng-show="editorController.isSelected('css')">
+                <div class="tab-separator"></div>
+                {% highlight html linenos=table %}
+<link href="css/gridlayout.css"
+      rel="stylesheet" type="text/css">
+                {% endhighlight %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- <div class="content-spacer layouts-internal-content">
+<h2>{{ page.internalTitle }}</h2>
+<div class="internal-text-container">
+<p>Grid columns have vertical spacing above and below each column to create vertical flow between columns. Consecutive grids will automatically preserve row spacing between grids.</p>
+</div>
+<div class="internal-image-container">
+<img class="image-container-middle" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.internalImage }}" />
+</div>
+</div> -->

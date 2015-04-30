@@ -1,0 +1,132 @@
+---
+layout: default
+baseUrl: "./"
+section: legal-notice.html
+title: "Legal Notice"
+---
+
+<div id="intern-content" class="center-container">
+    <div class="legal-notice-container">
+        <div id="internal-title">Open Source @ TID</div>
+        <p>This document will provide a guide, along with tools and procedures, to allow initiatives to open whichever software they want to release as Open Source.</p>
+        <p>Opening our code (at least the no-core-business parts) will allow us to increase our visibility and, if we are lucky, to obtain nice feedback and contributions from the external community.</p>
+
+        <h2>How should we start?</h2>
+        <p>First of all it’s necessary to define a procedure that states the responsibility and the ownership of the free code releasing:</p>
+        <ul>
+            <li>
+                <p>- The Area Manager and Area TechLead will be the last responsible to decide which software artifacts should be Opened based upon Initiative Technical Leaders proposals.</p>
+            </li>
+            <li>
+                <p>- All the opened software releases must be licensed. We have chosen <a class="link" href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank">Affero GPLv3</a> as the most convenient license. If we want to be free, we should be as free as possible (this is the best way to protect our dual-private releases).</p>
+            </li>
+            <li>
+                <p>- The initiative technical leader (or a chosen delegate) will be the administrator/moderator of the open project.</p>
+            </li>
+            <li>
+                <p>- In order to guarantee the software quality Q&A will provide a checklist and style guide that should fulfill every software artifact (some mandatory, some desired). Anyway it is possible that some projects at “pre-alpha” phase reach the liberation phase, so the projects must clearly advise the community with maturity level and expectations of the released product.</p>
+            </li>
+            <li>
+                <p>- The last owner of the software artifact quality will be the technical initiative leader.</p>
+            </li>
+            <li>
+                <p>- From this point it will be necessary to contact with the epg@tid.es in order to add the selected persons with their corresponding permissions to the GitHub TID organization account. Remind all the Open code must be released in the TID organization account, so we can manage and monitor all our Open source from a single point.</p>
+            </li>
+            <li>
+                <p>- Those projects accepting external contributions from the community must create their own entry point to external collaborators so they can apply for contribution/commit privileges. For example providing an email ([project].Contributors@tid.es). Other kind of contributions (bug reporting, comments, community support may need other kind of entry points).</p>
+            </li>
+            <li>
+                <p>- For internal contributions please contact with the Initiative Tech Leader or the project owner asking for priviledges.</p>
+            </li>
+            <li>
+                <p>- EPG will help you as far as possible in the provision of mailing list, and contribution channels associated to the released project (wiki, blog...).</p>
+            </li>
+            <li>
+                <p>To contribute with code it will be mandatory that the external developer sign and accept the TID Contribution Policy (see later) that will be sent to her in response to her contributor apply.</p>
+            </li>
+            <li>
+                <p>The technical leader (or her designated person) has the responsibility to moderate every external code contribution. Accepting just those contributions providing a differentiate value to the software artifact and recoding those contributions that were valid but considered of small entity or impact.  Recoding could be good, for example, to include a small patch. So we can retain the IPR and may no need to require any signed document.</p>
+            </li>
+        </ul>
+
+        <h2>Licencing</h2>
+        <p>The main idea is to provide a dual licensing of the selected products. That is, provide an Open version for the community and maintain a private version for internal purposes. Remind that every software release may have it’s own license, so we can have as many as we want/need, as far as we maintain the IPR of the software.</p>
+        <p>So Affero GPLv3 (<a class="link" href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank">http://www.gnu.org/licenses/agpl-3.0.html</a>) will be chosen for the Open releases. It “guarantees” (as far as possible) that any usage or modification of our products will remain free so we can take advantage of it. While if somebody wants to use our software in private/closed products they will need contact TID for another release with the right license agreement. The usage of GPL like licences may discourage the usage of our software, but remind that this is just a start.</p>
+        <p>Remind also that all our internal code (for private usage) must be signed with a header stating the authors of the artifact (optional) and the Telefonica Investigación y Desarrollo S.A.U ownership of the Copyright. You may use the following (or better a summarized one pointing to this):</p>
+        <pre>
+Copyright 20XX Telefonica Investigación y Desarrollo, S.A.U
+PROJECT:
+AUTHORS:
+
+This software and / or computer program has been developed by Telefónica Investigación y Desarrollo, SAU (hereinafter Telefónica I + D) and is protected as copyright by the applicable legislation on intellectual property .
+It belongs to Telefónica I + D, and / or its licensors, the exclusive rights of reproduction, distribution, public communication and transformation, and any economic right on it, all without prejudice of the moral rights of the authors mentioned above.
+
+It is expressly forbidden to decompile, disassemble, reverse engineer, sublicense or otherwise transmit by any means, translate or create derivative works of the software and / or computer programs, and perform with respect to all or part of such programs, any type of exploitation.
+
+Any use of all or part of the software and / or computer program will require the express written consent of Telefónica I + D. In all cases, it will be necessary to make an express reference to  Telefónica I+D ownership in the  software and / or computer program.
+
+Non-fulfillment of the provisions set forth herein and, in general, any violation of the peaceful possession and ownership of these rights will be prosecuted by the means provided in both Spanish and international law.  Telefónica I + D reserves any civil or criminal actions it may exercise to protect its rights.</p>
+        </pre>
+        <p>All the Open code must be signed also, to do so we will use the following header (complete [year], [project name] and [contacto@tid.es] where needed):</p>
+        <pre>
+Copyright 20XX Telefonica Investigación y Desarrollo, S.A.U
+
+This file is part of [PROJECT NAME].
+[PROJECT NAME] is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+[PROJECT NAME]  is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with Foobar. If not, see http://www.gnu.org/licenses/.
+
+For those usages not covered by the GNU Affero General Public License please contact with::[contacto@tid.es]
+</pre>
+        <p>We will upload license files to the repository allowing their linking.</p>
+
+        <h2>Dealing with Contributions</h2>
+        <p>Obtain useful contribution from the community is one of the tough parts of the Open Source experience. It is really difficult to get the community involved, but it could hoppefully happen and we must be ready.</p>
+        <p>There are different kinds of contribution we should expect. Code contribution must be fully aligned with our Contribution Policy. Right now it is a really restrictive one (just a painless start), and may discourage some contributors. But it is mandatory that TID maintain the IPR of the whole code (IPR could be shared also, depending on the contribution and the strategic value of the Open Project, so new contribution agreements could be designed for selected cases).</p>
+        <pre>
+Open Source Contribution Policy between Contributor
+And Telefónica Investigación y Desarrollo, S.A.U.
+
+With the aim of establish a Contribution Policy between the contributors and Telefónica I+D, contributors must send this policy signed in order to express the acceptance of all its sections.
+
+Contributor Contact Information
+
+Name (Contributor):__________________________________________________
+E-mail:_____________________________________________________________
+Phone:_____________________________________________________________
+Mailing Address:_____________________________________________________
+
+1.-  Contributor declare to own all the rights necessary to contribute with any material intended to be compiled or integrated with Source Code offered by Telefónica I+D after the acceptance of this policy by Telefónica I+D.
+
+2. By the acceptance of this policy, the Contributor assigns to Telefónica I+D the  ownership of the Contribution in all worldwide common law and statutory rights associated with the copyrights, copyright application, copyright registration and moral rights in the Contribution to the extent allowable under applicable local laws and copyright conventions.
+
+3. The Contributor will keep the moral rights and the authorship of the Contribution,
+
+4. The contributor agrees that the contribution given by this joint copyright assignment can be used by Telefónica I+D to establish and create privative versions of the contribution or to include it in privative products. The contributor will be mandatory mentioned as the author of the contribution, but all the rights and revenues of this privative version, will be owned by Telefónica I+D.
+
+5. This policy supersedes and replaces all prior copyrights assignments or agreements made by the contributor to Telefónica I+D under this project.
+
+6. This policy will apply to all contributions of the contributor, until one of the parties cancel or modify it by a written declaration or if a new one is signed.
+
+7. Contributor is legally entitled to grant the above policy and agrees not to provide any Contribution that violates any law or breaches any contract.
+
+Signed: ____________________________________________Date:________________
+
+Please send a signed original to [ITL/IL@tid.es]
+        </pre>
+        <p>Other kind of contributions should be managed also: Bug reporting, comments, support, test cases and other quality attributes. Again the objective is to recognise the valuable contributions while maintaining the IPR of the product. For example some bug reports or comments would drive us to implement new requirements, so it is important that contributors give us the freedom of use their feedback as we need to (for example use it in our closed releases).</p>
+        <p>Anyway since it don’t seem to be a good idea to require signing the contribution agreement to all kind of contributions we could provide an statement, of implicit acceptance, dealing with this concerns in the front-page of the project (conservative approach) or, since this is a fine grain problem, we could handle and solve it on the fly, when valuable contributions, matching with this scenario appear.</p>
+
+        <h2>I want to be open!</h2>
+        <p>Open source projects need extra management. It’s not a matter of double-commit into repositories. If you get open for the community, you should offer a minimum level of service to that community. Surely It’s not going to be too much work, but If we offer a contribution channel we should provide a good service on it. For example answering to the project distribution list, moderating commits or comments, doing a FAQ, road-mapping public requirements,... It’s up to you which channels do you open.</p>
+        <p>Remind that the last objective to Open Code is to attract users and contributors, opening your code “just to be open” and without any kind of community management, and dissemination efforts is mostly useless.</p>
+        <p>Other important point is the quality of the opened sources (of course this must apply to all our software also). It’s recommended to review some comments, “spanish coding”, review the project structure, dependencies (and their licenses), provide examples and useful instructions to build, use and deploy the software... and refactor could be needed also. If you want to be open, do your best. You never know who is watching.</p>
+
+        <h2>Using the Repository</h2>
+        <p>We have generated a github “organization account” for TID Open Projects. It is a free account, so it can host only public projects. Every released Open Project must be aggregated to this organization account.</p>
+        <p>Take into account that some problems could arise if we use a different repository than GIT in our internal developments, including extra management and losing commit meta-information. So it is encouraged to use GIT for our Open Projects (in public and private releases).</p>
+        <p>The administration of the Organization Account will by done by the people of the EPG. So ask them if you want to be added.</p>
+        <p>Github account: <a class="link" href="https://github.com/telefonicaid" target="_blank">https://github.com/telefonicaid</a></p>
+    </div>
+</div>

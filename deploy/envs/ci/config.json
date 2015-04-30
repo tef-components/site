@@ -1,0 +1,14 @@
+{
+    "NETWORKING": {
+        "shared_external_net_name": "ext_inet",
+        "shared_management_net_name": "ext_mgmt",
+        "dns_server_1": "10.95.77.6",
+        "dns_server_2": "10.95.64.6",
+        "host_route_network": "10.95.0.0/16"
+    },
+
+    "VMS": {
+        "centos": "b9419177-dbc6-4876-9988-0ce2aa18a740",
+        "ubuntu": "cafbf315-c1c1-42fe-b951-457594ac646d"
+    }
+}

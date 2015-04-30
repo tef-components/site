@@ -1,0 +1,19 @@
+- name: check if floating ip is already associated
+  shell: neutron --insecure floatingip-list -f csv --quote none | grep {{nginx_ip}} | cut -d ',' -f 2
+  register: nginx_fixed_ip
+
+- name: obtain nginx floating ip uuid
+  shell: neutron --insecure floatingip-list -f csv --quote none | grep {{nginx_ip}} | cut -d ',' -f 1
+  register: nginx_ip_uuid
+
+- name: getting nginx port uuid
+  shell: nova --insecure interface-list manager | grep 172.16.2 | cut -d '|' -f 3 | tr -d ' '
+  register: nginx_port_uuid
+
+- name: assign floating ip to nginx
+  command: neutron --insecure floatingip-associate "{{nginx_ip_uuid.stdout}}" "{{nginx_port_uuid.stdout}}"
+  when: nginx_fixed_ip.stdout.find('172') == -1
+
+- name: sleeping some seconds
+  command: sleep 5
+  when: nginx_fixed_ip.stdout.find('172') == -1

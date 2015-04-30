@@ -1,0 +1,29 @@
+- hosts: all:!localhost
+  gather_facts: true
+
+- hosts: jekyll
+  tags: jekyll
+  roles:
+    - jekyll
+
+- hosts: nginx
+  sudo: yes
+  tags: nginx
+  roles:
+    - nginx
+
+- hosts: 127.0.0.1
+  tags: check
+  vars_files:
+    - "tenants/{{ lookup('env','OS_TENANT_NAME') }}.yml"
+  vars:
+    platon_home: "{{ lookup('env','PLATON_HOME') }}"
+    deploy_home: "{{ lookup('env','DEPLOY_HOME') }}"
+    tenant_name: "{{ lookup('env','OS_TENANT_NAME') }}"
+  connection: local
+  sudo: no
+  tasks:
+    - include: ../../tasks/associate_nginx_floating_ip.yml
+
+    - name: check URL
+      get_url: url=https://{{nginx_ip}} dest=/tmp/result.txt validate_certs=no force=yes

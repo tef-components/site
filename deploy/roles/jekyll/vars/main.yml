@@ -1,0 +1,1 @@
+platon_home: "{{ lookup('env','PLATON_HOME') }}"

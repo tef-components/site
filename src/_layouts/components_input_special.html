@@ -1,0 +1,127 @@
+---
+layout: components
+title: Input
+linkGithub: "components/input"
+linkPlunker: "http://plnkr.co/edit/31a1bD851q3qwARkAg7i?p=preview"
+
+currentMenuSection: "Form"
+currentMenu: "Input"
+currentSubmenu: "Special"
+text: "Special Inputs are those that include the right box with an information icon. For this semantics button colors will be used according to each brand"
+---
+<div class="content-spacer">
+    <div class="visualization-container">
+
+        <div ng-controller="ShowController as graphicController" ng-init="graphicController.init('types')">
+            <ul class="nav-tab">
+                <li ng-click="graphicController.switchTo('types')" ng-class="{'selected': graphicController.isSelected('types')}">TYPES</li>
+                <li class="sep"></li>
+                <li ng-click="graphicController.switchTo('sizes')" ng-class="{'selected': graphicController.isSelected('sizes')}">SIZES</li>
+            </ul>
+
+            <div class="states-tab tab" ng-show="graphicController.isSelected('types')">
+                <div class="tab-separator"></div>
+                <div class="inner-tab">
+                    <div class="inner-tab-content">
+                        <div class="state clear">
+                            <p class="title">Plus</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/special/special_plus.png"/>
+                                <p class="description">An input field can have a <span>plus button</span></p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="state clear">
+                            <p class="title">Less</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/special/special_less.png"/>
+                                <p class="description">An input field can have a <span>less button</span></p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="state clear">
+                            <p class="title">Refresh</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/special/special_refresh.png"/>
+                                <p class="description">An input field can have a <span>refresh button</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sizes-tab tab" ng-show="graphicController.isSelected('sizes')">
+                <div class="tab-separator"></div>
+                <div class="inner-tab">
+                    <div class="inner-tab-content">
+                        <div class="size clear">
+                            <p class="title">Medium</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/sizes/{{ page.currentMenu | downcase }}/{{ page.currentSubmenu | downcase }}_size_medium.png"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="size clear">
+                            <p class="title">Large</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/sizes/{{ page.currentMenu | downcase }}/{{ page.currentSubmenu | downcase }}_size_large.png"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-controller="ShowController as editorController" ng-init="editorController.init('html')" class="editor">
+            <div class="plnkr-link">
+                <a href="{{page.linkPlunker}}" class="small btt-plunker" target="_blank">
+                  Go Plunker
+                </a>
+            </div>
+
+            <ul class="nav-tab">
+                <li ng-click="editorController.switchTo('html')" ng-class="{'selected': editorController.isSelected('html')}">HTML</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('css')" ng-class="{'selected': editorController.isSelected('css')}">CSS</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('source')" ng-class="{'selected': editorController.isSelected('source')}">SOURCE</li>
+            </ul>
+
+            <div class="html-tab tab" ng-show="editorController.isSelected('html')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<div class="input-container-medium">
+    <input class="{{ page.brand_folder | downcase }} special-input-btt"
+           type="text" />
+    <button class="{{ page.brand_folder | downcase }} btt-input btt-plus">
+    </button>
+</div>
+{% endhighlight %}
+            </div>
+
+            <div class="css-tab tab" ng-show="editorController.isSelected('css')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<link href="bb-input.css"
+      rel="stylesheet" type="text/css">
+<link href="{{ page.brand_folder | downcase }}-input.css"
+      rel="stylesheet" type="text/css">
+{% endhighlight %}
+            </div>
+
+            <div class="doc-tab tab" ng-show="editorController.isSelected('source')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<input ng-model=""
+    name="" required=""
+    ng-required="" ng-minlength=""
+    ng-maxlength="" ng-pattern=""
+    ng-change="" ng-trim="" >
+</input>
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</div>

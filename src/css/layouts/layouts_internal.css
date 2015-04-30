@@ -1,0 +1,68 @@
+.layouts-internal-content h2, .layouts-internal-content h3, .layouts-internal-content h4 {
+    color: #2DC1D5;
+    font-weight: normal;
+    margin: 0;
+}
+
+.layouts-internal-content h2.space-before, .layouts-internal-content h3.space-before, .layouts-internal-content h4.space-before  {
+    margin-top: 2em;
+}
+
+.layouts-internal-content p {
+    color: #333333;
+    margin-top: 1em;
+}
+
+.layouts-internal-content .internal-image-container {
+    width: 100%;
+}
+
+.layouts-internal-content.images-aligned {
+    display: inline-block;
+}
+
+.layouts-internal-content .internal-image-container.spaced {
+    padding: 3em 0 3em 0;
+}
+
+.layouts-internal-content .internal-image-container.spaced-medium {
+    padding: 1em 0 1em 0;
+}
+
+
+
+.layouts-internal-content .internal-image-container img.image-container-middle {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.layouts-internal-content .internal-image-container img.image-container-left {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.layouts-internal-content .internal-image-container img.align-image {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    float: left;
+    max-height: 100%;
+}
+
+.layouts-internal-content .internal-image-container img.image-container-big {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+}
+
+
+.layouts-internal-content .internal-text-container {
+    padding: 1.5em 0 1.5em 0;
+}
+
+.text-bold {
+    font-weight: bold;
+}

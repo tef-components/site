@@ -1,0 +1,5 @@
+server_name: localhost
+platon_home: "{{ lookup('env','PLATON_HOME') }}"
+active_env_home: "{{ lookup('env','ACTIVE_ENV_HOME') }}"
+installing_group: "{{ lookup('env', 'INSTALLING_GROUP') }}"
+main_group: "{{ lookup('env', 'MAIN_GROUP') }}"

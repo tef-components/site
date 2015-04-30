@@ -1,0 +1,15 @@
+---
+# This Playbook creates the network topology
+- hosts: 127.0.0.1
+  connection: local
+  gather_facts: false
+  vars_files:
+    - "config.json"
+  vars:
+    platon_home: "{{ lookup('env','PLATON_HOME') }}"
+    deploy_home: "{{ lookup('env','DEPLOY_HOME') }}"
+    tenant_name: "{{ lookup('env','OS_TENANT_NAME') }}"
+    stack_name: "LB"
+    stack_service_name: "BB"
+  tasks:
+    - include: "{{deploy_home}}/network/tasks.yml"

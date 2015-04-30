@@ -1,0 +1,39 @@
+# Site settings
+comments: true
+name: Building Blocks
+redirects: yes
+
+# Build settings
+markdown: redcarpet
+safe: true
+ghLinksBase: "https://github.com/PDI-DGS-Protolab/building-blocks-material"
+ghLinksBranch: "master"
+
+menu:
+- text: layouts
+  url: layouts/
+- text: components
+  url: components/
+- text: resources
+  url: resources/
+
+brands_menu:
+- text: Telefónica
+  img: img/defLayout/telefonica.svg
+  url: _telefonica.html
+- text: Movistar
+  img: img/defLayout/movistar.svg
+  url: _movistar.html
+- text: O2
+  img: img/defLayout/O2.svg
+  url: _o2.html
+- text: Vivo
+  img: img/defLayout/VIVO.svg
+  url: _vivo.html
+
+footer:
+- text: "© 2014 Telefónica Investigación y Desarrollo S.A. Unipersonal"
+- text: Legal Notice
+  url: legal-notice.html
+- text: Contact
+  href: mailto:building_blocks@tid.es?Subject=Contact%20Request

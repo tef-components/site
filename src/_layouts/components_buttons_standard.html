@@ -1,0 +1,230 @@
+---
+layout: components
+title: Buttons
+
+currentMenuSection: "Form"
+currentMenu: "Buttons"
+linkGithub: "components/buttons"
+linkPlunker: "http://plnkr.co/edit/AfehNC8TbOnKXE401IPr?p=preview"
+text: "A button provides the user a simple way to trigger an event"
+---
+<div class="content-spacer">
+    <div class="visualization-container">
+
+        <div ng-controller="ShowController as graphicController" ng-init="graphicController.init('types')">
+            <ul class="nav-tab">
+                <li ng-click="graphicController.switchTo('types')" ng-class="{'selected': graphicController.isSelected('types')}">TYPES</li>
+                <li class="sep"></li>
+                <li ng-click="graphicController.switchTo('states')" ng-class="{'selected': graphicController.isSelected('states')}">STATES</li>
+                <li class="sep"></li>
+                <li ng-click="graphicController.switchTo('sizes')" ng-class="{'selected': graphicController.isSelected('sizes')}">SIZES</li>
+                <li class="sep"></li>
+                <li ng-click="graphicController.switchTo('colors')" ng-class="{'selected': graphicController.isSelected('colors')}">COLORS</li>
+            </ul>
+
+            <div class="states-tab tab" ng-show="graphicController.isSelected('types')">
+                <div class="tab-separator"></div>
+                <div class="inner-tab">
+                    <div class="inner-tab-content">
+                        <div class="state clear">
+                            <p class="title">Label</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/types/label_type.png"/>
+                                <p class="description">A button can contain a <span>text label</span></p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="state clear">
+                            <p class="title">Icon</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/types/icon_type.png"/>
+                                <p class="description">A button can contain a <span>symbolic icon</span></p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="state clear">
+                            <p class="title">Icon Labeled</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/types/icon_labeled_type.png"/>
+                                <p class="description">A button can contain a <span>symbolic icon</span> with a <span>text label</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="states-tab tab" ng-show="graphicController.isSelected('states')">
+                <div class="tab-separator"></div>
+                <div class="inner-tab">
+                    <div class="inner-tab-content">
+                        <div class="state clear">
+                            <p class="title">Normal</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/states/{{ page.currentSubmenu| downcase}}_state_normal.png"/>
+                                <p class="description">An enabled button is <span>waiting orders</span> from users</p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="state clear">
+                            <p class="title">Pressed</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/states/{{ page.currentSubmenu| downcase}}_state_pressed.png"/>
+                                <p class="description">A button can change when pressed using <span>touch or mouse events</span></p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="state clear">
+                            <p class="title">Hover</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/states/{{ page.currentSubmenu| downcase}}_state_hover.png"/>
+                                <p class="description"> A button can highlight when <span>mouse pointer is over it</span></p>
+                            </div>
+                        </div>
+                        <br>
+
+
+                        <div class="state clear">
+                            <p class="title">Loading</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/states/{{ page.currentSubmenu| downcase}}_state_loading.png"/>
+                                <p class="description">A button may alert users when it is <span>waiting for something</span> to finish</p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="state clear">
+                            <p class="title">Disabled</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/states/{{ page.currentSubmenu| downcase}}_state_disabled.png"/>
+                                <p class="description"> A button can show when it's <span>unable to be interacted with</span> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sizes-tab tab" ng-show="graphicController.isSelected('sizes')">
+                <div class="tab-separator"></div>
+                <div class="inner-tab">
+                    <div class="inner-tab-content">
+                        <div class="size clear">
+                            <p class="title">Small</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/sizes/{{ page.currentMenu| downcase}}/{{ page.currentSubmenu| downcase}}_size_small.png"/>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="size clear">
+                            <p class="title">Medium</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/sizes/{{ page.currentMenu | downcase}}/{{ page.currentSubmenu| downcase}}_size_medium.png"/>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="size clear">
+                            <p class="title">Large</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/sizes/{{ page.currentMenu| downcase}}/{{ page.currentSubmenu| downcase}}_size_large.png"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="colors-tab tab" ng-show="graphicController.isSelected('colors')">
+                <div class="tab-separator"></div>
+                <div class="inner-tab">
+                    <div class="inner-tab-content">
+                        <div class="size clear">
+                            <p class="title">Neutral</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/colors/{{ page.currentSubmenu| downcase}}_color_neutral.png"/>
+                                <p class="description long-description">Neutral styling is the <span>default</span> and should be applied whenever there is no strong reason to do otherwise</p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="size clear">
+                            <p class="title">Positive</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/colors/{{ page.currentSubmenu| downcase}}_color_positive.png"/>
+                                <p class="description long-description">Positive buttons are reserved for <span>particularly important actions</span>. There should only be one positive button per context</p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="size clear">
+                            <p class="title">Negative</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/colors/{{ page.currentSubmenu| downcase}}_color_negative.png"/>
+                                <p class="description long-description">Negative buttons imply a significant negative action. They should only be used where <span>user actions have serious, lasting effects</span> that need to be clearly explained.</p>
+                            </div>
+                        </div>
+                        <br>
+
+                         <div class="size clear">
+                            <p class="title">Subdued</p>
+                            <div>
+                                <img class="normal" src="{{ page.baseUrl }}img/{{ page.brand_folder | downcase }}/{{ page.title | downcase }}/colors/{{ page.currentSubmenu| downcase}}_color_subdued.png"/>
+                                <p class="description long-description">Subdued buttons are not the default. They are used to intentionally <span>downplay secondary actions</span> like “Back” or “Cancel”.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-controller="ShowController as editorController" ng-init="editorController.init('html')" class="editor">
+            <div class="plnkr-link">
+                <a href="{{page.linkPlunker}}" class="small btt-plunker" target="_blank">
+                  Go Plunker
+                </a>
+            </div>
+
+            <ul class="nav-tab">
+                <li ng-click="editorController.switchTo('html')" ng-class="{'selected': editorController.isSelected('html')}">HTML</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('css')" ng-class="{'selected': editorController.isSelected('css')}">CSS</li>
+                <li class="sep"></li>
+                <li ng-click="editorController.switchTo('source')" ng-class="{'selected': editorController.isSelected('source')}">SOURCE</li>
+            </ul>
+
+            <div class="html-tab tab" ng-show="editorController.isSelected('html')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<div class="button-container-medium">
+    <button type="submit" enabled=""
+            class="{{ page.brand_folder | downcase }} button btt-{{page.currentSubmenu | downcase}}" >
+        Label
+    </button>
+</div>
+{% endhighlight %}
+            </div>
+
+            <div class="css-tab tab" ng-show="editorController.isSelected('css')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<link href="bb-button.css"
+      rel="stylesheet" type="text/css">
+<link href="{{ page.brand_folder | downcase }}-button.css"
+      rel="stylesheet" type="text/css">
+{% endhighlight %}
+            </div>
+
+            <div class="doc-tab tab" ng-show="editorController.isSelected('source')">
+                <div class="tab-separator"></div>
+{% highlight html linenos=table %}
+<button ng-click="" ng-init="" >
+    Label
+</button>
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+

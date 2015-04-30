@@ -1,0 +1,87 @@
+#!/bin/sh
+# chkconfig:   345 85 15
+# description: Startup script for Jekyll application with the forever module
+
+NAME=ccbroker
+SOURCE_DIR=/home/cloud-user/building-blocks-site/src/
+JEKYLL_BASE_URL="''"
+LOG_DIR=/var/log/building-blocks-site
+USER=cloud-user
+
+forever=/usr/bin/forever
+logfile=ccbroker.log
+outfile=$LOG_DIR/out.log
+errfile=$LOG_DIR/err.log
+pidfile=/var/run/ccbroker/ccbroker.pid
+
+RETVAL=0
+
+if [ ! -d "$SOURCE_DIR" ] ; then
+  exit 0
+fi
+
+start() {
+    echo "Starting $NAME"
+    runuser -s /bin/bash $USER -c "jekyll serve --source $SOURCE_DIR --baseurl $JEKYLL_BASE_URL >>/dev/null&"
+    RETVAL=$?
+}
+
+stop() {
+    if [ -f $PIDFILE ]; then
+        echo "Shutting down $NAME"
+        # Tell Forever to stop the process.
+        echo "Can't stop the server"
+        RETVAL=0
+    else
+        echo "$NAME is not running."
+        RETVAL=0
+    fi
+}
+
+restart() {
+    stop
+    start
+}
+
+status() {
+    # On Ubuntu this isn't even necessary. To find out whether the service is
+    # running, use "service my-application status" which bypasses this script
+    # entirely provided you used the service utility to start the process.
+    #
+    # The commented line below is the obvious way of checking whether or not a
+    # process is currently running via Forever, but in recent Forever versions
+    # when the service is started during Chef provisioning a dead pipe is left
+    # behind somewhere and that causes an EPIPE exception to be thrown.
+    # forever list | grep -q "$APPLICATION_PATH"
+    #
+    # So instead we add an extra layer of indirection with this to bypass that
+    # issue.
+    echo `top list` | grep -q "jekyll"
+    if [ "$?" -eq "0" ]; then
+        echo "$NAME is running."
+        RETVAL=0
+    else
+        echo "$NAME is not running."
+        RETVAL=3
+    fi
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status
+        ;;
+    restart)
+        restart
+        ;;
+    *)
+        echo "Usage: {start|stop|status|restart}"
+        exit 1
+        ;;
+esac
+exit $RETVAL
